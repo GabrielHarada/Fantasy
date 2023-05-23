@@ -1,8 +1,8 @@
 #pragma once
 #include "Principal.h"
 
-Jogo::Principal::Principal():
-	window(sf::VideoMode(800.0f, 600.0f), "Jogo++")
+Jogo::Principal::Principal() :
+	window(sf::VideoMode(800.0f, 600.0f), "Jogo++"), jogador(sf::Vector2f(100.0f, 200.0f), sf::Vector2f(50.0f, 50.0f))
 {
 	executar();
 }
@@ -12,10 +12,6 @@ Jogo::Principal::~Principal() {
 }
 
 void Jogo::Principal::executar() {
-	sf::RectangleShape jogador(sf::Vector2f(50.0f, 50.0f));
-	jogador.setFillColor(sf::Color::Blue);
-	jogador.setPosition(50.0f, 50.0f);
-
 	while (window.isOpen()){
 		sf::Event evento;
 		if (window.pollEvent(evento)) {
@@ -30,7 +26,8 @@ void Jogo::Principal::executar() {
 		}
 
 		window.clear();
-		window.draw(jogador);
+		jogador.move();
+		window.draw(jogador.getCorpo());
 		window.display();
 	}
 }
