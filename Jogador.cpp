@@ -4,7 +4,7 @@
 
 void Jogo::Personagem::Jogador::Jogador::inicializa()
 {
-	vel = sf::Vector2f(10.0f, 10.0f);
+	vel = sf::Vector2f(0.1f, 0.1f);
 }
 
 Jogo::Personagem::Jogador::Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam):

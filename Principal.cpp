@@ -10,13 +10,13 @@ Jogo::Principal::Principal() :
 	Personagem::Personagem* p1 = static_cast<Personagem::Personagem*>(jogador);
 	Personagem::Personagem* p2 = static_cast<Personagem::Personagem*>(inimigo);
 
-	personagens.push_back(p2);
 	personagens.push_back(p1);
+	personagens.push_back(p2);
 
 	executar();
 
-	delete jogador;
-	delete inimigo;
+	delete p1;
+	delete p2;
 }
 
 Jogo::Principal::~Principal() {
