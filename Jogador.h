@@ -9,8 +9,6 @@ namespace Jogo {
 
 			class Jogador : public Personagem {
 			private:
-				sf::RectangleShape corpo;
-				sf::Vector2f vel;
 				void inicializa();
 			public:
 				Jogador(const sf::Vector2f pos, const sf::Vector2f tam);
