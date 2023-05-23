@@ -8,7 +8,8 @@ void Jogo::Personagem::Inimigo::Inimigo::inicializa()
 Jogo::Personagem::Inimigo::Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador):
 		Personagem(pos, tam), relogio(), jogador(jogador)
 {
-	corpo.setFillColor(sf::Color::Blue);
+	corpo.setFillColor(sf::Color::Red);
+	corpo.setPosition(300.0f, 300.0f);
 	inicializa();
 	srand(time(NULL));
 	moveAleatorio = rand()%4;
