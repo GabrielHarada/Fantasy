@@ -1,66 +1,79 @@
 #include "Inimigo.h"
 
-void Jogo::Personagem::Inimigo::Inimigo::inicializa()
-{
-	vel = sf::Vector2f(VELOCIDADE_INIMIGO_X, VELOCIDADE_INIMIGO_y);
-}
-
-Jogo::Personagem::Inimigo::Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador):
-		Personagem(pos, tam), relogio(), jogador(jogador)
+Jogo::Entidade::Personagem::Inimigo::Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador):
+	Personagem(pos, tam, VELOCIDADE_INIMIGO, IDs::IDs::inimigo), jogador(jogador), dtAux(0.0f)
 {
 	corpo.setFillColor(sf::Color::Red);
 	inicializa();
 	srand(time(NULL));
-	moveAleatorio = rand()%4;
-}
-
-Jogo::Personagem::Inimigo::Inimigo::~Inimigo()
-{
-}
-
-void Jogo::Personagem::Inimigo::Inimigo::persegueJogador(sf::Vector2f posJogador, sf::Vector2f posInimigo)
-{
-	if (posJogador.x - posInimigo.x > 0.0f) {
-		corpo.move(vel.x, 0.0f);
-	} else{
-		corpo.move(-vel.x, 0.0f);
-	}
-	if (posJogador.y - posInimigo.y > 0.0f) {
-		corpo.move(0.0f, vel.y);
-	} else {
-		corpo.move(0.0f, -vel.y);
-	}
-}
-
-void Jogo::Personagem::Inimigo::Inimigo::movimentoAleatorio()
-{
+	moveAleatorio = rand() % 3;
 	if (moveAleatorio == 0) {
-		corpo.move(vel.x, 0.0f);
-	} else if (moveAleatorio == 1) {
-		corpo.move(-vel.x, 0.0f);
-	} else if (moveAleatorio == 2) {
-		corpo.move(0.0f, vel.y);
-	} else {
-		corpo.move(0.0f, -vel.y);
+		parar();
 	}
-
-	float dt = relogio.getElapsedTime().asSeconds();
-	if (dt >= 1.0f) {
-		moveAleatorio = rand() % 4;
-		relogio.restart();
+	else if (moveAleatorio == 1) {
+		andar(true);
+	}
+	else {
+		andar(false);
 	}
 }
 
-
-void Jogo::Personagem::Inimigo::Inimigo::move()
+void Jogo::Entidade::Personagem::Inimigo::Inimigo::inicializa()
 {
-	sf::Vector2f posJogador = jogador->getCorpo().getPosition();
-	sf::Vector2f posInimigo = corpo.getPosition();
+}
 
-	if (fabs(posJogador.x - posInimigo.x) <= RAIO_PERSEGUIR_X && fabs(posJogador.y - posInimigo.y) <= RAIO_PERSEGUIR_Y) {
-		persegueJogador(posJogador, posInimigo);
-	} else {
-		movimentoAleatorio();
+Jogo::Entidade::Personagem::Inimigo::Inimigo::~Inimigo()
+{
+}
+
+void Jogo::Entidade::Personagem::Inimigo::Inimigo::atualizaMovimentoAleatorio()
+{
+	if (dtAux > 3.0f) {
+		moveAleatorio = rand() % 3;
+		if (moveAleatorio == 0) {
+			parar();
+		}
+		else if (moveAleatorio == 1) {
+			andar(true);
+		}
+		else {
+			andar(false);
+		}
+		dtAux = 0.0f;
 	}
+}
 
+void Jogo::Entidade::Personagem::Inimigo::Inimigo::atualizar()
+{
+	sf::Vector2f posJogador = jogador->getPos();
+	sf::Vector2f posInimigo = getPos();
+	if (fabs(posJogador.x - posInimigo.x) <= RAIO_PERSEGUIR_X && fabs(posJogador.y - posInimigo.y) <= RAIO_PERSEGUIR_Y) {
+		if (posJogador.x - posInimigo.x > 0.0f) {
+			andar(false);
+		}
+		else {
+			andar(true);
+		}
+	}
+	else {
+		atualizaMovimentoAleatorio();
+	}
+	atualizarPosicao();
+	dtAux += relogio.getElapsedTime().asSeconds();
+	relogio.restart();
+}
+
+void Jogo::Entidade::Personagem::Inimigo::Inimigo::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
+	switch (outraEntidade->getID()) {
+	case (IDs::IDs::jogador):
+	{
+		std::cout << "Bate jogador e jogador pode bater no inimigo" << std::endl;
+	}
+	break;
+	case (IDs::IDs::inimigo):
+	{
+		std::cout << "Empurra inimigo" << std::endl;
+	}
+	break;
+	}
 }
