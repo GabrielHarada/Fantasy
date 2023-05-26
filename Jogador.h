@@ -3,18 +3,27 @@
 #include <iostream>
 #include "Personagem.h"
 
-namespace Jogo {
-	namespace Personagem {
-		namespace Jogador {
+#define VELOCIDADE_JOGADOR 150.0f
+#define TAMANHO_PULO 0.08f
 
-			class Jogador : public Personagem {
-			private:
-				void inicializa();
-			public:
-				Jogador(const sf::Vector2f pos, const sf::Vector2f tam);
-				~Jogador();
-				void move();
-			};
+namespace Jogo {
+	namespace Entidade {
+		namespace Personagem {
+			namespace Jogador {
+
+				class Jogador : public Personagem {
+				private:
+					void inicializa();
+					bool noChao;
+				public:
+					Jogador(const sf::Vector2f pos, const sf::Vector2f tam);
+					~Jogador();
+					void atualizar();
+					void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));
+					void pular();
+					void podePular();
+				};
+			}
 		}
 	}
 }

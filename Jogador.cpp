@@ -1,32 +1,53 @@
 #pragma once
 #include "Jogador.h"
 #include "Personagem.h"
+#include <math.h>
 
-void Jogo::Personagem::Jogador::Jogador::inicializa()
-{
-	vel = sf::Vector2f(0.1f, 0.1f);
-}
 
-Jogo::Personagem::Jogador::Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam):
-	Personagem(pos, tam)
+Jogo::Entidade::Personagem::Jogador::Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam):
+	Personagem(pos, tam, VELOCIDADE_JOGADOR, IDs::IDs::jogador), noChao(false)
 {
 	corpo.setFillColor(sf::Color::Green);
 	inicializa();
 }
 
-Jogo::Personagem::Jogador::Jogador::~Jogador()
+void Jogo::Entidade::Personagem::Jogador::Jogador::inicializa()
 {
 }
 
-void Jogo::Personagem::Jogador::Jogador::move()
+Jogo::Entidade::Personagem::Jogador::Jogador::~Jogador()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		corpo.move(-vel.x, 0.0f);
-	} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		corpo.move(vel.x, 0.0f);
-	} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		corpo.move(0.0f, -vel.y);
-	} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		corpo.move(0.0f, vel.y);
+}
+
+void Jogo::Entidade::Personagem::Jogador::Jogador::atualizar()
+{
+	if (podeAndar) {
+		atualizarPosicao();
 	}
+	relogio.restart();
+}
+
+void Jogo::Entidade::Personagem::Jogador::Jogador::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
+    switch (outraEntidade->getID()) {
+        case (IDs::IDs::inimigo):
+        {
+            //std::cout << "Pode bater no inimigo e inimigo pode bater no jogador" << std::endl;
+        }
+        break;
+        case(IDs::IDs::plataforma):
+        {
+
+        }
+    }
+}
+
+void Jogo::Entidade::Personagem::Jogador::Jogador::pular() {
+    if (noChao) {
+        velFinal.y = -sqrt(2.0f * GRAVIDADE * TAMANHO_PULO);
+        noChao = false;
+    }
+}
+
+void Jogo::Entidade::Personagem::Jogador::Jogador::podePular() {
+    noChao = true;
 }
