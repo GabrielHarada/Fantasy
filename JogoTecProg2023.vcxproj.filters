@@ -30,6 +30,9 @@
     <ClCompile Include="Inimigo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GerenciadorGrafico.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Principal.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Inimigo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GerenciadorGrafico.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

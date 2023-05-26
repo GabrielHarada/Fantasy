@@ -2,21 +2,29 @@
 #include "Principal.h"
 
 Jogo::Principal::Principal() :
-	window(sf::VideoMode(1280.0f, 1024.0f), "Jogo++"), personagens()
+	pGrafico(pGrafico->getGerenciadorGrafico()), personagens()
 {
+	if (pGrafico == nullptr) {
+		std::cout << "ERROR::Jogo::Principal nao foi possivel criar o GerenciadorGrafico" << std::endl;
+		exit(1);
+	}
 	Personagem::Jogador::Jogador* jogador = new Personagem::Jogador::Jogador(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(50.0f, 50.0f));
-	Personagem::Inimigo::Inimigo* inimigo = new Personagem::Inimigo::Inimigo(sf::Vector2f(100.0f, 100.0f), sf::Vector2f(50.0f, 50.0f), jogador);
+	Personagem::Inimigo::Inimigo* inimigo1 = new Personagem::Inimigo::Inimigo(sf::Vector2f(200.0f, 200.0f), sf::Vector2f(50.0f, 50.0f), jogador);
+	Personagem::Inimigo::Inimigo* inimigo2 = new Personagem::Inimigo::Inimigo(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(50.0f, 50.0f), jogador);
 
 	Personagem::Personagem* p1 = static_cast<Personagem::Personagem*>(jogador);
-	Personagem::Personagem* p2 = static_cast<Personagem::Personagem*>(inimigo);
+	Personagem::Personagem* p2 = static_cast<Personagem::Personagem*>(inimigo1);
+	Personagem::Personagem* p3 = static_cast<Personagem::Personagem*>(inimigo2);
 
 	personagens.push_back(p1);
 	personagens.push_back(p2);
+	personagens.push_back(p3);
 
 	executar();
 
 	delete p1;
 	delete p2;
+	delete p3;
 }
 
 Jogo::Principal::~Principal() {
@@ -24,27 +32,27 @@ Jogo::Principal::~Principal() {
 }
 
 void Jogo::Principal::executar() {
-	while (window.isOpen()){
+	while (pGrafico->verificaJanelaAberta()){
 		sf::Event evento;
-		if (window.pollEvent(evento)) {
+		if (pGrafico->getWindow()->pollEvent(evento)) {
 			if (evento.type == sf::Event::Closed) {
-				window.close();
+				pGrafico->fecharJanela();
 			}
 			else if (evento.type == sf::Event::KeyPressed) {
 				if (evento.key.code == sf::Keyboard::Escape) {
-					window.close();
+					pGrafico->fecharJanela();
 				}
 			}
 		}
 
-		window.clear();
+		pGrafico->limpaJanela();
 		for (int i = 0; i < personagens.size(); i++) {
 			personagens.at(i)->move();
 		}
 		for (int i = 0; i < personagens.size(); i++) {
-			window.draw(personagens.at(i)->getCorpo());
+			pGrafico->desenhaElemento(personagens.at(i)->getCorpo());
 		}
-		window.display();
+		pGrafico->mostraElementos();
 	}
 	personagens.clear();
 }

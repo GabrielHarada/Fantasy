@@ -10,7 +10,6 @@ void Jogo::Personagem::Jogador::Jogador::inicializa()
 Jogo::Personagem::Jogador::Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam):
 	Personagem(pos, tam)
 {
-	corpo.setPosition(pos);
 	corpo.setFillColor(sf::Color::Green);
 	inicializa();
 }

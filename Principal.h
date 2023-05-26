@@ -3,13 +3,13 @@
 #include <iostream>
 #include "Jogador.h"
 #include "Inimigo.h"
-#include <vector>
+#include "GerenciadorGrafico.h"
 
 namespace Jogo {
 
 	class Principal {
 	private:
-		sf::RenderWindow window;
+		Gerenciador::GerenciadorGrafico* pGrafico;
 		std::vector<Jogo::Personagem::Personagem*> personagens;
 	public:
 		Principal();
