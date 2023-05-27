@@ -1,62 +1,46 @@
+#pragma once 
 #include "GerenciadorGrafico.h"
 
-Jogo::Gerenciador::GerenciadorGrafico* Jogo::Gerenciador::GerenciadorGrafico::pGrafico = nullptr;
+Jogo::Gerenciador::GerenciadorGrafico* Jogo::Gerenciador::GerenciadorGrafico::pGrafico =  nullptr;
 
 Jogo::Gerenciador::GerenciadorGrafico::GerenciadorGrafico():
-    window(new sf::RenderWindow(sf::VideoMode(800.0f, 600.0f), "Jogo++"))
+  window(new sf::RenderWindow(sf::VideoMode(800.0f,600.0f),"Jogo"))
 {
-    if(window == nullptr){
-        std::cout << "ERROR::Jogo::Gerenciador::GerenciadorGrafico nao foi possivel criar uma janela grafica" << std::endl;
-        exit(1);
-    }
+  if(window = nullptr)
+  {
+    std::cout <<"ERROR::Jogo::Gerenciador::GerenciadorGrafico nao conseguiu criar uma janela grafica"<< std::endl;
+    exit(1);
+  }
 }
 
 Jogo::Gerenciador::GerenciadorGrafico::~GerenciadorGrafico(){
-    if(window){
-        delete(window);
-        window = nullptr;
-    }
+  if(window){
+    delete(window);
+    window = nullptr;
+  }
 }
-
-Jogo::Gerenciador::GerenciadorGrafico* Jogo::Gerenciador::GerenciadorGrafico::getGerenciadorGrafico(){
-    /**
-     * @ return GerenciadorGrafico*
-     * 
-     * Padrão de Projeto Singleton: garante que eu tenha apenas uma instância no meu projeto como um todo, isto é,
-     * não é possível criar dois objetos diferentes deste tipo.
-     */
-
-    if(pGrafico == nullptr){
-        pGrafico = new GerenciadorGrafico();
-    }
-    return pGrafico;
-}
-
 sf::RenderWindow* Jogo::Gerenciador::GerenciadorGrafico::getWindow(){
-    return window;
+  return window;
 }
-
-sf::Texture Jogo::Gerenciador::GerenciadorGrafico::carregarTextura(const char* caminhoTextura){
-    //terminar...
-    return sf::Texture();
+Jogo::Gerenciador::GerenciadorGrafico* Jogo::Gerenciador::GerenciadorGrafico::getGerenciadorGrafico(){
+  if (pGrafico = nullptr)
+  {
+    return new Jogo::Gerenciador::GerenciadorGrafico();
+  }
+  
 }
-
 void Jogo::Gerenciador::GerenciadorGrafico::limpaJanela(){
-    window->clear();
+  window->clear();
 }
-
-void Jogo::Gerenciador::GerenciadorGrafico::desenhaElemento(sf::RectangleShape corpo){
-    window->draw(corpo);
+void Jogo::Gerenciador::GerenciadorGrafico::fechaJanela(){
+  window->close();
 }
-
-void Jogo::Gerenciador::GerenciadorGrafico::mostraElementos(){
-    window->display();
+void Jogo::Gerenciador::GerenciadorGrafico::desenhaElementos(sf::RectangleShape corpo){
+  window->draw(corpo);
 }
-
-void Jogo::Gerenciador::GerenciadorGrafico::fecharJanela(){
-    window->close();
-}
-
 const bool Jogo::Gerenciador::GerenciadorGrafico::verificaJanelaAberta(){
-    return window->isOpen();
+  if(window->isOpen()){
+    return true;
+  }
+  return false;
 }

@@ -1,31 +1,27 @@
 #pragma once
 
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <iostream>
-    
-namespace Jogo {
+#include "Personagem.h"
+#include "Jogador.h"
 
-    namespace Gerenciador {
-
-        class GerenciadorGrafico {
-        private:
-            sf::RenderWindow* window;
-
-            //a construtora privada faz parte do padrão de projeto singleton
-            static GerenciadorGrafico* pGrafico;
-            GerenciadorGrafico();
-        public:
-            ~GerenciadorGrafico();
-            static GerenciadorGrafico* getGerenciadorGrafico();
-            sf::RenderWindow* getWindow();
-            sf::Texture carregarTextura(const char* caminhoTextura);
-            void limpaJanela();
-            void desenhaElemento(sf::RectangleShape corpo);
-            void mostraElementos();
-            void fecharJanela();
-            const bool verificaJanelaAberta();
-        };
-
-    }
-
+namespace Jogo{
+  namespace Gerenciador{
+    class GerenciadorGrafico
+    {
+    private:
+      sf::RenderWindow* window;
+      static GerenciadorGrafico* pGrafico;
+      GerenciadorGrafico();
+    public:
+      ~GerenciadorGrafico();
+      static GerenciadorGrafico* getGerenciadorGrafico();
+      sf::RenderWindow* getWindow();
+      void limpaJanela();
+      void desenhaElementos(sf::RectangleShape corpo);
+      void fechaJanela();
+      void mostraElementos();
+      const bool verificaJanelaAberta();
+    };
+  }
 }
