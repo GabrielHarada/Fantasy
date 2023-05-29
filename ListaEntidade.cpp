@@ -39,3 +39,7 @@ void Jogo::Lista::ListaEntidade::executar(sf::RenderWindow* window) {
         window->draw(aux->getCorpo());
     }
 }
+
+void Jogo::Lista::ListaEntidade::limparLista() {
+    objListaEntidade.limparLista();
+}

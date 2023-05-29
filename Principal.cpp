@@ -21,7 +21,8 @@ Jogo::Principal::Principal() :
 }
 
 Jogo::Principal::~Principal() {
-
+	listaObstaculo.limparLista();
+	listaPersonagem.limparLista();
 }
 
 void Jogo::Principal::instanciaEntidades() {

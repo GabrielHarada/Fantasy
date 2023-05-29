@@ -20,6 +20,7 @@ namespace Jogo {
             void removerElemento(int pos);
             int getTam();
             TL* operator[](int pos);
+            void limparLista();
         };
 
         template<class TL>
@@ -43,6 +44,7 @@ namespace Jogo {
             }
             pInicio = nullptr;
             pUltimo = nullptr;
+            limparLista();
         }
 
         template<class TL>
@@ -122,6 +124,22 @@ namespace Jogo {
             return aux->getElemento();
         }
 
+        template<class TL>
+        void Lista<TL>::limparLista() {
+            if (pInicio) {
+                Elemento<TL>* aux = pInicio;
+                Elemento<TL>* aux2 = nullptr;
+                while (aux != nullptr) {
+                    aux2 = aux->getProx();
+                    delete(aux->getElemento());
+                    aux = nullptr;
+                    aux = aux2;
+                }
+            }
+            pInicio = nullptr;
+            pUltimo = nullptr;
+        }
     }
+
 
 }
