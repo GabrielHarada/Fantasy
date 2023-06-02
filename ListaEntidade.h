@@ -18,7 +18,7 @@ namespace Jogo {
             void removerEntidade(int pos);
             int getTam();
             Entidade::Entidade* operator[](int pos);
-            void executar(sf::RenderWindow* window);
+            void executar();
             void limparLista();
         };
 

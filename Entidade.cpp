@@ -1,7 +1,7 @@
 #include "Entidade.h"
 
 Jogo::Entidade::Entidade::Entidade(const sf::Vector2f pos, const sf::Vector2f tam, const IDs::IDs ID) :
-    corpo(sf::RectangleShape(tam)), ID(ID), pos(pos), tam(tam)
+    Ente(ID), corpo(sf::RectangleShape(tam)), pos(pos), tam(tam)
 {
     corpo.setPosition(pos);
 }
@@ -27,6 +27,6 @@ const sf::Vector2f Jogo::Entidade::Entidade::getTam() {
     return tam;
 }
 
-const IDs::IDs Jogo::Entidade::Entidade::getID() const {
-    return ID;
+void Jogo::Entidade::Entidade::desenhar() {
+    pGrafico->desenhaElemento(corpo);
 }

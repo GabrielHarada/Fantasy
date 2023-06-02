@@ -10,3 +10,7 @@ Jogo::Entidade::Obstaculo::Obstaculo::Obstaculo(const sf::Vector2f pos, const sf
 Jogo::Entidade::Obstaculo::Obstaculo::~Obstaculo() {
 
 }
+
+void Jogo::Entidade::Obstaculo::Obstaculo::atualizar() {
+    desenhar();
+}

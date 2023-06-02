@@ -14,7 +14,3 @@ Jogo::Entidade::Obstaculo::Caixa::~Caixa() {
 void Jogo::Entidade::Obstaculo::Caixa::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
 
 }
-
-void Jogo::Entidade::Obstaculo::Caixa::atualizar() {
-
-}

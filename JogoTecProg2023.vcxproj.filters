@@ -78,6 +78,9 @@
     <ClCompile Include="Caixa.cpp">
       <Filter>Source Files\Entidades\Obstaculos</Filter>
     </ClCompile>
+    <ClCompile Include="Ente.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Principal.h">
@@ -124,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="Plataforma.h">
       <Filter>Header Files\Entidades\Obstaculos</Filter>
+    </ClInclude>
+    <ClInclude Include="Ente.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

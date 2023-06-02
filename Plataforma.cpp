@@ -51,7 +51,3 @@ void Jogo::Entidade::Obstaculo::Plataforma::colisaoObstaculo(sf::Vector2f ds, Pe
     pPersonagem->setPos(posOutro);
     pPersonagem->setVelFinal(velFinal);
 }
-
-void Jogo::Entidade::Obstaculo::Plataforma::atualizar() {
-    
-}

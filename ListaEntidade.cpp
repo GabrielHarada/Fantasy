@@ -30,13 +30,12 @@ Jogo::Entidade::Entidade* Jogo::Lista::ListaEntidade::operator[](int pos) {
     return objListaEntidade.operator[](pos);
 }
 
-void Jogo::Lista::ListaEntidade::executar(sf::RenderWindow* window) {
+void Jogo::Lista::ListaEntidade::executar() {
     int tam = objListaEntidade.getTam();
     Entidade::Entidade* aux = nullptr;
     for (int i = 0; i < tam; i++) {
         aux = objListaEntidade.operator[](i);
         aux->atualizar();
-        window->draw(aux->getCorpo());
     }
 }
 

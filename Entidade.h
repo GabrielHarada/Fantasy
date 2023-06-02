@@ -4,17 +4,17 @@
 #include "GerenciadorGrafico.h"
 #include <iostream>
 #include "IDs.h"
+#include "Ente.h"
 
 namespace Jogo{
 
     namespace Entidade {
 
-        class Entidade {
+        class Entidade : public Ente {
         protected:
             sf::RectangleShape corpo;
             sf::Vector2f pos;
             sf::Vector2f tam;
-            const IDs::IDs ID;
         public:
             Entidade(const sf::Vector2f pos, const sf::Vector2f tam, const IDs::IDs ID);
             ~Entidade();
@@ -22,9 +22,9 @@ namespace Jogo{
             void setPos(sf::Vector2f pos);
             const sf::Vector2f getPos();
             const sf::Vector2f getTam();
-            const IDs::IDs getID() const;
             virtual void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f)) = 0;
             virtual void atualizar() = 0;
+            void desenhar();
         };
 
     }

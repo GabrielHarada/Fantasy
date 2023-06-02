@@ -44,6 +44,8 @@ void Jogo::Entidade::Personagem::Personagem::atualizarPosicao() {
 
     //atualiza velocidade na horizontal
     velFinal.x = velMax;
+
+    desenhar();
 }
 
 void Jogo::Entidade::Personagem::Personagem::setVelFinal(sf::Vector2f velFinal) {

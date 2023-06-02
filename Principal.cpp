@@ -79,9 +79,9 @@ void Jogo::Principal::executar() {
 	while (pGrafico->verificaJanelaAberta()) {
 		pEvento->executar();
 		pGrafico->limpaJanela();
-		//pinta entidades
-		listaPersonagem.executar(pGrafico->getWindow());
-		listaObstaculo.executar(pGrafico->getWindow());
+
+		listaPersonagem.executar();
+		listaObstaculo.executar();
 
 		colisor.executar();
 
