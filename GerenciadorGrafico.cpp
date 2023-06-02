@@ -37,7 +37,12 @@ sf::RenderWindow* Jogo::Gerenciador::GerenciadorGrafico::getWindow(){
 }
 
 sf::Texture Jogo::Gerenciador::GerenciadorGrafico::carregarTextura(const char* caminhoTextura){
-    return sf::Texture();
+    sf::Texture textura;
+    if (!textura.loadFromFile(caminhoTextura)) {
+        std::cout << "ERRO::Jungle::Gerenciador::GerenciadorGrafico::nao foi possivel encontrar o caminho da textura - " << caminhoTextura << std::endl;
+        exit(1);
+    }
+    return textura;
 }
 
 void Jogo::Gerenciador::GerenciadorGrafico::limpaJanela(){

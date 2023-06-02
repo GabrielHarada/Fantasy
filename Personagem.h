@@ -5,7 +5,7 @@
 
 #include "Entidade.h"
 
-#define GRAVIDADE 0.5f
+#define GRAVIDADE 0.7f
 
 namespace Jogo {
 	namespace Entidade {
