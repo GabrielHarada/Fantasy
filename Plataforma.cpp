@@ -53,5 +53,5 @@ void Jogo::Entidade::Obstaculo::Plataforma::colisaoObstaculo(sf::Vector2f ds, Pe
 }
 
 void Jogo::Entidade::Obstaculo::Plataforma::atualizar() {
-    //terminar..
+    
 }

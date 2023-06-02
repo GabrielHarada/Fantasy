@@ -7,12 +7,12 @@ Jogo::Gerenciador::GerenciadorColisao::GerenciadorColisao(Lista::ListaEntidade* 
 }
 
 Jogo::Gerenciador::GerenciadorColisao::~GerenciadorColisao() {
-    if (listaPersonagem) {
+    /*if (listaPersonagem) {
         delete(listaPersonagem);
     }
     if (listaObstaculo) {
         delete(listaObstaculo);
-    }
+    }*/
 }
 
 const sf::Vector2f Jogo::Gerenciador::GerenciadorColisao::calculaColisao(Entidade::Entidade* ent1, Entidade::Entidade* ent2) {

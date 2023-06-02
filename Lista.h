@@ -32,18 +32,6 @@ namespace Jogo {
 
         template<class TL>
         Lista<TL>::~Lista() {
-            if (pInicio) {
-                Elemento<TL>* aux = pInicio;
-                Elemento<TL>* aux2 = nullptr;
-                while (aux != nullptr) {
-                    aux2 = aux->getProx();
-                    delete(aux->getElemento());
-                    aux = nullptr;
-                    aux = aux2;
-                }
-            }
-            pInicio = nullptr;
-            pUltimo = nullptr;
             limparLista();
         }
 

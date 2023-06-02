@@ -3,7 +3,7 @@
 #include "Obstaculo.h"
 #include "Personagem.h"
 
-#define CAMINHO_TEXTURA_PLATAFORMA "Jogo++/img/Obstaculo/plataforma.png"
+//#define CAMINHO_TEXTURA_PLATAFORMA "Jogo++/img/Obstaculo/plataforma.png"
 #define ESCALA_PLATAFORMA_X 1
 #define ESCALA_PLATAFORMA_Y 1
 

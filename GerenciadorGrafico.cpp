@@ -3,7 +3,7 @@
 Jogo::Gerenciador::GerenciadorGrafico* Jogo::Gerenciador::GerenciadorGrafico::pGrafico = nullptr;
 
 Jogo::Gerenciador::GerenciadorGrafico::GerenciadorGrafico():
-    window(new sf::RenderWindow(sf::VideoMode(800.0f, 600.0f), "Jogo++"))
+    window(new sf::RenderWindow(sf::VideoMode(1280.0f, 1024.0f), "Jogo++"))
 {
     if(window == nullptr){
         std::cout << "ERROR::Jogo::Gerenciador::GerenciadorGrafico nao foi possivel criar uma janela grafica" << std::endl;
@@ -37,7 +37,6 @@ sf::RenderWindow* Jogo::Gerenciador::GerenciadorGrafico::getWindow(){
 }
 
 sf::Texture Jogo::Gerenciador::GerenciadorGrafico::carregarTextura(const char* caminhoTextura){
-    //terminar...
     return sf::Texture();
 }
 

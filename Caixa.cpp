@@ -4,7 +4,7 @@
 Jogo::Entidade::Obstaculo::Caixa::Caixa(sf::Vector2f pos, sf::Vector2f tam) :
     Obstaculo(pos, tam, IDs::IDs::caixa), podeEmpurrar(false)
 {
-    //terminar...
+
 }
 
 Jogo::Entidade::Obstaculo::Caixa::~Caixa() {
