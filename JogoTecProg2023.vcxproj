@@ -145,38 +145,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Caixa.cpp" />
-    <ClCompile Include="Ente.cpp" />
-    <ClCompile Include="Entidade.cpp" />
-    <ClCompile Include="GerenciadorColisao.cpp" />
-    <ClCompile Include="GerenciadorEvento.cpp" />
-    <ClCompile Include="GerenciadorGrafico.cpp" />
-    <ClCompile Include="Inimigo.cpp" />
-    <ClCompile Include="Jogador.cpp" />
-    <ClCompile Include="ListaEntidade.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Obstaculo.cpp" />
-    <ClCompile Include="Personagem.cpp" />
-    <ClCompile Include="Plataforma.cpp" />
-    <ClCompile Include="Principal.cpp" />
+    <ClCompile Include="source\Ente.cpp" />
+    <ClCompile Include="source\Entidade\Entidade.cpp" />
+    <ClCompile Include="source\Entidade\Obstaculo\Caixa\Caixa.cpp" />
+    <ClCompile Include="source\Entidade\Obstaculo\Obstaculo.cpp" />
+    <ClCompile Include="source\Entidade\Obstaculo\Plataforma\Plataforma.cpp" />
+    <ClCompile Include="source\Entidade\Personagem\Inimigo\Inimigo.cpp" />
+    <ClCompile Include="source\Entidade\Personagem\Jogador\Jogador.cpp" />
+    <ClCompile Include="source\Entidade\Personagem\Personagem.cpp" />
+    <ClCompile Include="source\Gerenciador\GerenciadorColisao.cpp" />
+    <ClCompile Include="source\Gerenciador\GerenciadorEvento.cpp" />
+    <ClCompile Include="source\Gerenciador\GerenciadorGrafico.cpp" />
+    <ClCompile Include="source\Lista\ListaEntidade.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Principal.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Caixa.h" />
-    <ClInclude Include="Elemento.h" />
-    <ClInclude Include="Ente.h" />
-    <ClInclude Include="Entidade.h" />
-    <ClInclude Include="GerenciadorColisao.h" />
-    <ClInclude Include="GerenciadorEvento.h" />
-    <ClInclude Include="GerenciadorGrafico.h" />
-    <ClInclude Include="IDs.h" />
-    <ClInclude Include="Inimigo.h" />
-    <ClInclude Include="Jogador.h" />
-    <ClInclude Include="Lista.h" />
-    <ClInclude Include="ListaEntidade.h" />
-    <ClInclude Include="Obstaculo.h" />
-    <ClInclude Include="Personagem.h" />
-    <ClInclude Include="Plataforma.h" />
-    <ClInclude Include="Principal.h" />
+    <ClInclude Include="header\Ente.h" />
+    <ClInclude Include="header\Entidade\Entidade.h" />
+    <ClInclude Include="header\Entidade\Obstaculo\Caixa\Caixa.h" />
+    <ClInclude Include="header\Entidade\Obstaculo\Obstaculo.h" />
+    <ClInclude Include="header\Entidade\Obstaculo\Plataforma\Plataforma.h" />
+    <ClInclude Include="header\Entidade\Personagem\Inimigo\Inimigo.h" />
+    <ClInclude Include="header\Entidade\Personagem\Jogador\Jogador.h" />
+    <ClInclude Include="header\Entidade\Personagem\Personagem.h" />
+    <ClInclude Include="header\Gerenciador\GerenciadorColisao.h" />
+    <ClInclude Include="header\Gerenciador\GerenciadorEvento.h" />
+    <ClInclude Include="header\Gerenciador\GerenciadorGrafico.h" />
+    <ClInclude Include="header\IDs.h" />
+    <ClInclude Include="header\Lista\Elemento.h" />
+    <ClInclude Include="header\Lista\Lista.h" />
+    <ClInclude Include="header\Lista\ListaEntidade.h" />
+    <ClInclude Include="header\Principal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

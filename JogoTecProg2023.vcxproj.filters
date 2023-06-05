@@ -31,105 +31,129 @@
     <Filter Include="Source Files\Entidades">
       <UniqueIdentifier>{6ad9120b-f686-4378-977b-3210a51bcffc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Entidades\Obstaculos">
-      <UniqueIdentifier>{f3ac09bb-536c-4918-bf0b-896cb9b4a6ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Entidades\Obstaculos">
       <UniqueIdentifier>{eeb684d9-aec9-4e94-a1d3-0cbe954fbede}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entidades\Personagem">
+      <UniqueIdentifier>{11c6e72d-1ef8-4c67-81c1-974fdc51163c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entidades\Personagem\Jogador">
+      <UniqueIdentifier>{e5f58f10-56f7-412c-a81f-8f7cb5aeb0bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entidades\Personagem\Inimigo">
+      <UniqueIdentifier>{ce899105-9979-4c35-9c45-17fda41a8e12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entidades\Personagem">
+      <UniqueIdentifier>{76b82872-c712-40a1-9dd3-e9b491ef8b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entidades\Personagem\Jogador">
+      <UniqueIdentifier>{1e1e0492-26bb-43d8-9a31-79af33c3fee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entidades\Personagem\Inimigo">
+      <UniqueIdentifier>{46e0767e-f6a0-4286-b095-46536cb4e980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entidades\Obstaculo">
+      <UniqueIdentifier>{f3ac09bb-536c-4918-bf0b-896cb9b4a6ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entidades\Obstaculo\Caixa">
+      <UniqueIdentifier>{4dac5528-8908-4daf-991e-f7bb85e89e13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entidades\Obstaculo\Plataforma">
+      <UniqueIdentifier>{9bf1d6be-3e5a-4c4e-a1c6-711e28db8463}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="source\Ente.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Principal.cpp">
+    <ClCompile Include="source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GerenciadorColisao.cpp">
+    <ClCompile Include="source\Principal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Gerenciador\GerenciadorColisao.cpp">
       <Filter>Source Files\Gerenciadores</Filter>
     </ClCompile>
-    <ClCompile Include="GerenciadorEvento.cpp">
+    <ClCompile Include="source\Gerenciador\GerenciadorEvento.cpp">
       <Filter>Source Files\Gerenciadores</Filter>
     </ClCompile>
-    <ClCompile Include="GerenciadorGrafico.cpp">
+    <ClCompile Include="source\Gerenciador\GerenciadorGrafico.cpp">
       <Filter>Source Files\Gerenciadores</Filter>
     </ClCompile>
-    <ClCompile Include="ListaEntidade.cpp">
+    <ClCompile Include="source\Lista\ListaEntidade.cpp">
       <Filter>Source Files\Listas</Filter>
     </ClCompile>
-    <ClCompile Include="Entidade.cpp">
-      <Filter>Source Files\Entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Inimigo.cpp">
-      <Filter>Source Files\Entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Jogador.cpp">
-      <Filter>Source Files\Entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Personagem.cpp">
-      <Filter>Source Files\Entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Obstaculo.cpp">
+    <ClCompile Include="source\Entidade\Obstaculo\Obstaculo.cpp">
       <Filter>Source Files\Entidades\Obstaculos</Filter>
     </ClCompile>
-    <ClCompile Include="Plataforma.cpp">
+    <ClCompile Include="source\Entidade\Obstaculo\Plataforma\Plataforma.cpp">
       <Filter>Source Files\Entidades\Obstaculos</Filter>
     </ClCompile>
-    <ClCompile Include="Caixa.cpp">
+    <ClCompile Include="source\Entidade\Obstaculo\Caixa\Caixa.cpp">
       <Filter>Source Files\Entidades\Obstaculos</Filter>
     </ClCompile>
-    <ClCompile Include="Ente.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="source\Entidade\Entidade.cpp">
+      <Filter>Source Files\Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Entidade\Personagem\Personagem.cpp">
+      <Filter>Source Files\Entidades\Personagem</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Entidade\Personagem\Jogador\Jogador.cpp">
+      <Filter>Source Files\Entidades\Personagem\Jogador</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Entidade\Personagem\Inimigo\Inimigo.cpp">
+      <Filter>Source Files\Entidades\Personagem\Inimigo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Principal.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="header\Entidade\Entidade.h">
+      <Filter>Header Files\Entidades</Filter>
     </ClInclude>
-    <ClInclude Include="IDs.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="header\Entidade\Personagem\Personagem.h">
+      <Filter>Header Files\Entidades\Personagem</Filter>
     </ClInclude>
-    <ClInclude Include="GerenciadorColisao.h">
+    <ClInclude Include="header\Entidade\Personagem\Jogador\Jogador.h">
+      <Filter>Header Files\Entidades\Personagem\Jogador</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Entidade\Personagem\Inimigo\Inimigo.h">
+      <Filter>Header Files\Entidades\Personagem\Inimigo</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Gerenciador\GerenciadorColisao.h">
       <Filter>Header Files\Gerenciadores</Filter>
     </ClInclude>
-    <ClInclude Include="GerenciadorEvento.h">
+    <ClInclude Include="header\Gerenciador\GerenciadorEvento.h">
       <Filter>Header Files\Gerenciadores</Filter>
     </ClInclude>
-    <ClInclude Include="GerenciadorGrafico.h">
+    <ClInclude Include="header\Gerenciador\GerenciadorGrafico.h">
       <Filter>Header Files\Gerenciadores</Filter>
     </ClInclude>
-    <ClInclude Include="Entidade.h">
-      <Filter>Header Files\Entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Inimigo.h">
-      <Filter>Header Files\Entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Jogador.h">
-      <Filter>Header Files\Entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Personagem.h">
-      <Filter>Header Files\Entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Lista.h">
+    <ClInclude Include="header\Lista\Elemento.h">
       <Filter>Header Files\Listas</Filter>
     </ClInclude>
-    <ClInclude Include="ListaEntidade.h">
+    <ClInclude Include="header\Lista\Lista.h">
       <Filter>Header Files\Listas</Filter>
     </ClInclude>
-    <ClInclude Include="Elemento.h">
+    <ClInclude Include="header\Lista\ListaEntidade.h">
       <Filter>Header Files\Listas</Filter>
     </ClInclude>
-    <ClInclude Include="Obstaculo.h">
-      <Filter>Header Files\Entidades\Obstaculos</Filter>
-    </ClInclude>
-    <ClInclude Include="Caixa.h">
-      <Filter>Header Files\Entidades\Obstaculos</Filter>
-    </ClInclude>
-    <ClInclude Include="Plataforma.h">
-      <Filter>Header Files\Entidades\Obstaculos</Filter>
-    </ClInclude>
-    <ClInclude Include="Ente.h">
+    <ClInclude Include="header\Ente.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\IDs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Principal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Entidade\Obstaculo\Obstaculo.h">
+      <Filter>Header Files\Entidades\Obstaculo</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Entidade\Obstaculo\Caixa\Caixa.h">
+      <Filter>Header Files\Entidades\Obstaculo\Caixa</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Entidade\Obstaculo\Plataforma\Plataforma.h">
+      <Filter>Header Files\Entidades\Obstaculo\Plataforma</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
