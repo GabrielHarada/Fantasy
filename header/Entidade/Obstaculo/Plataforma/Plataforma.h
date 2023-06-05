@@ -7,7 +7,7 @@
 #define ESCALA_PLATAFORMA_X 1
 #define ESCALA_PLATAFORMA_Y 1
 
-namespace Jogo {
+namespace Fantasy {
 
     namespace Entidade {
 

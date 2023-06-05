@@ -1,17 +1,17 @@
 #pragma once
 #include "..\header\Principal.h"
 
-Jogo::Principal::Principal() :
+Fantasy::Principal::Principal() :
 	listaPersonagem(), listaObstaculo(), pGrafico(pGrafico->getGerenciadorGrafico()),
 	pEvento(pEvento->getGerenciadorEvento()),
 	colisor(&listaPersonagem, &listaObstaculo)
 {
 	if (pGrafico == nullptr) {
-		std::cout << "ERROR::Jogo::Principal nao foi possivel criar o GerenciadorGrafico" << std::endl;
+		std::cout << "ERROR::Fantasy::Principal nao foi possivel criar o GerenciadorGrafico" << std::endl;
 		exit(1);
 	}
 	if (pEvento == nullptr) {
-		std::cout << "ERROR::Jogo::Principal nao foi possivel criar o GerenciadorEvento" << std::endl;
+		std::cout << "ERROR::Fantasy::Principal nao foi possivel criar o GerenciadorEvento" << std::endl;
 		exit(1);
 	}
 
@@ -20,12 +20,12 @@ Jogo::Principal::Principal() :
 	executar();
 }
 
-Jogo::Principal::~Principal() {
+Fantasy::Principal::~Principal() {
 	listaObstaculo.limparLista();
 	listaPersonagem.limparLista();
 }
 
-void Jogo::Principal::instanciaEntidades() {
+void Fantasy::Principal::instanciaEntidades() {
 
 	//cria personagens e obstaculos
 	Entidade::Personagem::Jogador::Jogador* jogador = new Entidade::Personagem::Jogador::Jogador(sf::Vector2f(500.0f, 50.0f), sf::Vector2f(20.0f, 20.0f));
@@ -75,7 +75,7 @@ void Jogo::Principal::instanciaEntidades() {
 	pEvento->setJogador(jogador);
 }
 
-void Jogo::Principal::executar() {
+void Fantasy::Principal::executar() {
 	while (pGrafico->verificaJanelaAberta()) {
 		pEvento->executar();
 		pGrafico->limpaJanela();

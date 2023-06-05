@@ -6,7 +6,7 @@
 #include "..\IDs.h"
 #include "..\Ente.h"
 
-namespace Jogo{
+namespace Fantasy{
 
     namespace Entidade {
 

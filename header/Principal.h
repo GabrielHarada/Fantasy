@@ -13,7 +13,7 @@
 
 #include "..\header\Lista\ListaEntidade.h"
 
-namespace Jogo {
+namespace Fantasy {
 
 	class Principal {
 	private:

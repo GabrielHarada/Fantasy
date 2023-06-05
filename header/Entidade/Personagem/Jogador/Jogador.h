@@ -6,7 +6,7 @@
 #define VELOCIDADE_JOGADOR 200.0f
 #define TAMANHO_PULO 0.03f
 
-namespace Jogo {
+namespace Fantasy {
 	namespace Entidade {
 		namespace Personagem {
 			namespace Jogador {

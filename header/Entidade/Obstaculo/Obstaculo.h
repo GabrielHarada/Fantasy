@@ -4,7 +4,7 @@
 #include "..\Personagem\Jogador\Jogador.h"
 #include "..\Personagem\Inimigo\Inimigo.h"
 
-namespace Jogo {
+namespace Fantasy {
 
     namespace Entidade {
 

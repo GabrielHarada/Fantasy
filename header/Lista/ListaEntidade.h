@@ -3,7 +3,7 @@
 #include "..\Lista\Lista.h"
 #include "..\Entidade\Entidade.h"
 
-namespace Jogo {
+namespace Fantasy {
 
     namespace Lista {
 

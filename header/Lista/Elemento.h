@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace Jogo {
+namespace Fantasy {
 
     namespace Lista {
 

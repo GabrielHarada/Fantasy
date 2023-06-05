@@ -3,7 +3,7 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
     
-namespace Jogo {
+namespace Fantasy {
 
     namespace Gerenciador {
 

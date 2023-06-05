@@ -6,7 +6,7 @@
 #include "IDs.h"
 #include "..\header\Gerenciador\GerenciadorGrafico.h"
 
-namespace Jogo {
+namespace Fantasy {
 
     class Ente {
     protected:

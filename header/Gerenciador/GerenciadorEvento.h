@@ -3,7 +3,7 @@
 #include "..\Gerenciador\GerenciadorGrafico.h"
 #include "..\Entidade\Personagem\Jogador\Jogador.h"
 
-namespace Jogo {
+namespace Fantasy {
 
     namespace Gerenciador {
 

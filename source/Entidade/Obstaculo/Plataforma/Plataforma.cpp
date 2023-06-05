@@ -1,7 +1,7 @@
 #pragma once
 #include "..\..\header\Entidade\Obstaculo\Plataforma\Plataforma.h"
 
-Jogo::Entidade::Obstaculo::Plataforma::Plataforma(sf::Vector2f pos, sf::Vector2f tam) :
+Fantasy::Entidade::Obstaculo::Plataforma::Plataforma(sf::Vector2f pos, sf::Vector2f tam) :
     Obstaculo(pos, tam, IDs::IDs::plataforma)
 {
     textura = pGrafico->carregarTextura(CAMINHO_TEXTURA_PLATAFORMA);
@@ -9,11 +9,11 @@ Jogo::Entidade::Obstaculo::Plataforma::Plataforma(sf::Vector2f pos, sf::Vector2f
     //corpo.setFillColor(sf::Color::Cyan);
 }
 
-Jogo::Entidade::Obstaculo::Plataforma::~Plataforma() {
+Fantasy::Entidade::Obstaculo::Plataforma::~Plataforma() {
 
 }
 
-void Jogo::Entidade::Obstaculo::Plataforma::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
+void Fantasy::Entidade::Obstaculo::Plataforma::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
     sf::Vector2f posOutro = outraEntidade->getPos();
     sf::Vector2f tamOutro = outraEntidade->getTam();
 
@@ -22,7 +22,7 @@ void Jogo::Entidade::Obstaculo::Plataforma::colisao(Entidade* outraEntidade, sf:
     }
 }
 
-void Jogo::Entidade::Obstaculo::Plataforma::colisaoObstaculo(sf::Vector2f ds, Personagem::Personagem* pPersonagem) {
+void Fantasy::Entidade::Obstaculo::Plataforma::colisaoObstaculo(sf::Vector2f ds, Personagem::Personagem* pPersonagem) {
     sf::Vector2f posOutro = pPersonagem->getPos();
     sf::Vector2f tamOutro = pPersonagem->getTam();
     sf::Vector2f velFinal = pPersonagem->getVelFinal();

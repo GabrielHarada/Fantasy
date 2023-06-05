@@ -3,11 +3,11 @@
 #include "..\Obstaculo.h"
 
 //textura
-//#define CAMINHO_TEXTURA_CAIXA "Jogo++/img/Obstaculo/caixa.png"
+//#define CAMINHO_TEXTURA_CAIXA "Fantasy++/img/Obstaculo/caixa.png"
 #define ESCALA_CAIXA_X 1
 #define ESCALA_CAIXA_Y 1
 
-namespace Jogo {
+namespace Fantasy {
 
     namespace Entidade {
 

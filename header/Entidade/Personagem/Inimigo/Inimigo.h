@@ -13,7 +13,7 @@
 #define RAIO_PERSEGUIR_X 200.0f
 #define RAIO_PERSEGUIR_Y 200.0f
 
-namespace Jogo {
+namespace Fantasy {
 	namespace Entidade {
 		namespace Personagem {
 			namespace Inimigo {

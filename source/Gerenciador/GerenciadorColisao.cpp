@@ -1,12 +1,12 @@
 #include "..\..\header\Gerenciador\GerenciadorColisao.h"
 
-Jogo::Gerenciador::GerenciadorColisao::GerenciadorColisao(Lista::ListaEntidade* listaPersonagem, Lista::ListaEntidade* listaObstaculo) :
+Fantasy::Gerenciador::GerenciadorColisao::GerenciadorColisao(Lista::ListaEntidade* listaPersonagem, Lista::ListaEntidade* listaObstaculo) :
     listaPersonagem(listaPersonagem), listaObstaculo(listaObstaculo)
 {
 
 }
 
-Jogo::Gerenciador::GerenciadorColisao::~GerenciadorColisao() {
+Fantasy::Gerenciador::GerenciadorColisao::~GerenciadorColisao() {
     /*if (listaPersonagem) {
         delete(listaPersonagem);
     }
@@ -15,7 +15,7 @@ Jogo::Gerenciador::GerenciadorColisao::~GerenciadorColisao() {
     }*/
 }
 
-const sf::Vector2f Jogo::Gerenciador::GerenciadorColisao::calculaColisao(Entidade::Entidade* ent1, Entidade::Entidade* ent2) {
+const sf::Vector2f Fantasy::Gerenciador::GerenciadorColisao::calculaColisao(Entidade::Entidade* ent1, Entidade::Entidade* ent2) {
     sf::Vector2f pos1 = ent1->getPos();
     sf::Vector2f pos2 = ent2->getPos();
 
@@ -30,7 +30,7 @@ const sf::Vector2f Jogo::Gerenciador::GerenciadorColisao::calculaColisao(Entidad
     return sf::Vector2f(distanciaEntreCentros.x - somaMetadeRectangulo.x, distanciaEntreCentros.y - somaMetadeRectangulo.y);
 }
 
-void Jogo::Gerenciador::GerenciadorColisao::executar() {
+void Fantasy::Gerenciador::GerenciadorColisao::executar() {
     /**
      * @ return void
      *

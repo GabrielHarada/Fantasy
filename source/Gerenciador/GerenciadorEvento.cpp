@@ -1,28 +1,28 @@
 #include "..\..\header\Gerenciador\GerenciadorEvento.h"
 
-Jogo::Gerenciador::GerenciadorEvento* Jogo::Gerenciador::GerenciadorEvento::pEvento = nullptr;
+Fantasy::Gerenciador::GerenciadorEvento* Fantasy::Gerenciador::GerenciadorEvento::pEvento = nullptr;
 
-Jogo::Gerenciador::GerenciadorEvento::GerenciadorEvento() :
+Fantasy::Gerenciador::GerenciadorEvento::GerenciadorEvento() :
     pGrafico(pGrafico->getGerenciadorGrafico())
 {
 
 }
 
-Jogo::Gerenciador::GerenciadorEvento::~GerenciadorEvento() {
+Fantasy::Gerenciador::GerenciadorEvento::~GerenciadorEvento() {
 
 }
 
-Jogo::Gerenciador::GerenciadorEvento* Jogo::Gerenciador::GerenciadorEvento::getGerenciadorEvento() {
+Fantasy::Gerenciador::GerenciadorEvento* Fantasy::Gerenciador::GerenciadorEvento::getGerenciadorEvento() {
     if (pEvento == nullptr) {
         pEvento = new GerenciadorEvento();
     }
     return pEvento;
 }
-void Jogo::Gerenciador::GerenciadorEvento::setJogador(Entidade::Personagem::Jogador::Jogador* pJogador) {
+void Fantasy::Gerenciador::GerenciadorEvento::setJogador(Entidade::Personagem::Jogador::Jogador* pJogador) {
     this->pJogador = pJogador;
 }
 
-void Jogo::Gerenciador::GerenciadorEvento::verificaTeclaPressionada(sf::Keyboard::Key tecla) {
+void Fantasy::Gerenciador::GerenciadorEvento::verificaTeclaPressionada(sf::Keyboard::Key tecla) {
     if (tecla == sf::Keyboard::A) {
         pJogador->andar(true);
     }
@@ -37,13 +37,13 @@ void Jogo::Gerenciador::GerenciadorEvento::verificaTeclaPressionada(sf::Keyboard
     }
 }
 
-void Jogo::Gerenciador::GerenciadorEvento::verificaTeclaSolta(sf::Keyboard::Key tecla) {
+void Fantasy::Gerenciador::GerenciadorEvento::verificaTeclaSolta(sf::Keyboard::Key tecla) {
     if (tecla == sf::Keyboard::A || tecla == sf::Keyboard::D) {
         pJogador->parar();
     }
 }
 
-void Jogo::Gerenciador::GerenciadorEvento::executar() {
+void Fantasy::Gerenciador::GerenciadorEvento::executar() {
     sf::Event evento;
     while (pGrafico->getWindow()->pollEvent(evento)) {
         if (evento.type == sf::Event::KeyPressed) {

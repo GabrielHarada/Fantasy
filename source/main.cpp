@@ -3,6 +3,6 @@
 
 int main()
 {
-	Jogo::Principal objPrincipal;
+	Fantasy::Principal objPrincipal;
 	return 0;
 }

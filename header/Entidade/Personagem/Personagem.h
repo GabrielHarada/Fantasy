@@ -7,7 +7,7 @@
 
 #define GRAVIDADE 0.7f
 
-namespace Jogo {
+namespace Fantasy {
 	namespace Entidade {
 		namespace Personagem {
 

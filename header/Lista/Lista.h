@@ -2,7 +2,7 @@
 
 #include "..\Lista\Elemento.h"
 
-namespace Jogo {
+namespace Fantasy {
 
     namespace Lista {
 

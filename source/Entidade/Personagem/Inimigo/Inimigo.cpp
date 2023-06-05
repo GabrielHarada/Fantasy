@@ -1,6 +1,6 @@
 #include "..\..\header\Entidade\Personagem\Inimigo\Inimigo.h"
 
-Jogo::Entidade::Personagem::Inimigo::Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador):
+Fantasy::Entidade::Personagem::Inimigo::Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador):
 	Personagem(pos, tam, VELOCIDADE_INIMIGO, IDs::IDs::inimigo), jogador(jogador), dtAux(0.0f)
 {
 	corpo.setFillColor(sf::Color::Red);
@@ -18,15 +18,15 @@ Jogo::Entidade::Personagem::Inimigo::Inimigo::Inimigo(const sf::Vector2f pos, co
 	}
 }
 
-void Jogo::Entidade::Personagem::Inimigo::Inimigo::inicializa()
+void Fantasy::Entidade::Personagem::Inimigo::Inimigo::inicializa()
 {
 }
 
-Jogo::Entidade::Personagem::Inimigo::Inimigo::~Inimigo()
+Fantasy::Entidade::Personagem::Inimigo::Inimigo::~Inimigo()
 {
 }
 
-void Jogo::Entidade::Personagem::Inimigo::Inimigo::atualizaMovimentoAleatorio()
+void Fantasy::Entidade::Personagem::Inimigo::Inimigo::atualizaMovimentoAleatorio()
 {
 	if (dtAux > 3.0f) {
 		moveAleatorio = rand() % 3;
@@ -43,7 +43,7 @@ void Jogo::Entidade::Personagem::Inimigo::Inimigo::atualizaMovimentoAleatorio()
 	}
 }
 
-void Jogo::Entidade::Personagem::Inimigo::Inimigo::atualizar()
+void Fantasy::Entidade::Personagem::Inimigo::Inimigo::atualizar()
 {
 	sf::Vector2f posJogador = jogador->getPos();
 	sf::Vector2f posInimigo = getPos();
@@ -63,7 +63,7 @@ void Jogo::Entidade::Personagem::Inimigo::Inimigo::atualizar()
 	relogio.restart();
 }
 
-void Jogo::Entidade::Personagem::Inimigo::Inimigo::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
+void Fantasy::Entidade::Personagem::Inimigo::Inimigo::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
 	switch (outraEntidade->getID()) {
 	case (IDs::IDs::jogador):
 	{

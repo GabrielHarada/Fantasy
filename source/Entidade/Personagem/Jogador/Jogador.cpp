@@ -4,22 +4,22 @@
 #include <math.h>
 
 
-Jogo::Entidade::Personagem::Jogador::Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam):
+Fantasy::Entidade::Personagem::Jogador::Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam):
 	Personagem(pos, tam, VELOCIDADE_JOGADOR, IDs::IDs::jogador), noChao(false)
 {
 	corpo.setFillColor(sf::Color::Green);
 	inicializa();
 }
 
-void Jogo::Entidade::Personagem::Jogador::Jogador::inicializa()
+void Fantasy::Entidade::Personagem::Jogador::Jogador::inicializa()
 {
 }
 
-Jogo::Entidade::Personagem::Jogador::Jogador::~Jogador()
+Fantasy::Entidade::Personagem::Jogador::Jogador::~Jogador()
 {
 }
 
-void Jogo::Entidade::Personagem::Jogador::Jogador::atualizar()
+void Fantasy::Entidade::Personagem::Jogador::Jogador::atualizar()
 {
 	if (podeAndar) {
 		atualizarPosicao();
@@ -27,7 +27,7 @@ void Jogo::Entidade::Personagem::Jogador::Jogador::atualizar()
 	relogio.restart();
 }
 
-void Jogo::Entidade::Personagem::Jogador::Jogador::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
+void Fantasy::Entidade::Personagem::Jogador::Jogador::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
     switch (outraEntidade->getID()) {
         case (IDs::IDs::inimigo):
         {
@@ -41,13 +41,13 @@ void Jogo::Entidade::Personagem::Jogador::Jogador::colisao(Entidade* outraEntida
     }
 }
 
-void Jogo::Entidade::Personagem::Jogador::Jogador::pular() {
+void Fantasy::Entidade::Personagem::Jogador::Jogador::pular() {
     if (noChao) {
         velFinal.y = -sqrt(2.0f * GRAVIDADE * TAMANHO_PULO);
         noChao = false;
     }
 }
 
-void Jogo::Entidade::Personagem::Jogador::Jogador::podePular() {
+void Fantasy::Entidade::Personagem::Jogador::Jogador::podePular() {
     noChao = true;
 }

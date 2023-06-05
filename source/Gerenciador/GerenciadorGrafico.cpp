@@ -1,24 +1,24 @@
 #include "..\..\header\Gerenciador\GerenciadorGrafico.h"
 
-Jogo::Gerenciador::GerenciadorGrafico* Jogo::Gerenciador::GerenciadorGrafico::pGrafico = nullptr;
+Fantasy::Gerenciador::GerenciadorGrafico* Fantasy::Gerenciador::GerenciadorGrafico::pGrafico = nullptr;
 
-Jogo::Gerenciador::GerenciadorGrafico::GerenciadorGrafico():
-    window(new sf::RenderWindow(sf::VideoMode(1280.0f, 1024.0f), "Jogo++"))
+Fantasy::Gerenciador::GerenciadorGrafico::GerenciadorGrafico():
+    window(new sf::RenderWindow(sf::VideoMode(1280.0f, 1024.0f), "Fantasy++"))
 {
     if(window == nullptr){
-        std::cout << "ERROR::Jogo::Gerenciador::GerenciadorGrafico nao foi possivel criar uma janela grafica" << std::endl;
+        std::cout << "ERROR::Fantasy::Gerenciador::GerenciadorGrafico nao foi possivel criar uma janela grafica" << std::endl;
         exit(1);
     }
 }
 
-Jogo::Gerenciador::GerenciadorGrafico::~GerenciadorGrafico(){
+Fantasy::Gerenciador::GerenciadorGrafico::~GerenciadorGrafico(){
     if(window){
         delete(window);
         window = nullptr;
     }
 }
 
-Jogo::Gerenciador::GerenciadorGrafico* Jogo::Gerenciador::GerenciadorGrafico::getGerenciadorGrafico(){
+Fantasy::Gerenciador::GerenciadorGrafico* Fantasy::Gerenciador::GerenciadorGrafico::getGerenciadorGrafico(){
     /**
      * @ return GerenciadorGrafico*
      * 
@@ -32,11 +32,11 @@ Jogo::Gerenciador::GerenciadorGrafico* Jogo::Gerenciador::GerenciadorGrafico::ge
     return pGrafico;
 }
 
-sf::RenderWindow* Jogo::Gerenciador::GerenciadorGrafico::getWindow(){
+sf::RenderWindow* Fantasy::Gerenciador::GerenciadorGrafico::getWindow(){
     return window;
 }
 
-sf::Texture Jogo::Gerenciador::GerenciadorGrafico::carregarTextura(const char* caminhoTextura){
+sf::Texture Fantasy::Gerenciador::GerenciadorGrafico::carregarTextura(const char* caminhoTextura){
     sf::Texture textura;
     if (!textura.loadFromFile(caminhoTextura)) {
         std::cout << "ERRO::Jungle::Gerenciador::GerenciadorGrafico::nao foi possivel encontrar o caminho da textura - " << caminhoTextura << std::endl;
@@ -45,22 +45,22 @@ sf::Texture Jogo::Gerenciador::GerenciadorGrafico::carregarTextura(const char* c
     return textura;
 }
 
-void Jogo::Gerenciador::GerenciadorGrafico::limpaJanela(){
+void Fantasy::Gerenciador::GerenciadorGrafico::limpaJanela(){
     window->clear();
 }
 
-void Jogo::Gerenciador::GerenciadorGrafico::desenhaElemento(sf::RectangleShape corpo){
+void Fantasy::Gerenciador::GerenciadorGrafico::desenhaElemento(sf::RectangleShape corpo){
     window->draw(corpo);
 }
 
-void Jogo::Gerenciador::GerenciadorGrafico::mostraElementos(){
+void Fantasy::Gerenciador::GerenciadorGrafico::mostraElementos(){
     window->display();
 }
 
-void Jogo::Gerenciador::GerenciadorGrafico::fecharJanela(){
+void Fantasy::Gerenciador::GerenciadorGrafico::fecharJanela(){
     window->close();
 }
 
-const bool Jogo::Gerenciador::GerenciadorGrafico::verificaJanelaAberta(){
+const bool Fantasy::Gerenciador::GerenciadorGrafico::verificaJanelaAberta(){
     return window->isOpen();
 }

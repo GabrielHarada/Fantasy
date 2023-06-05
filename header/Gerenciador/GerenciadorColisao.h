@@ -4,7 +4,7 @@
 #include "..\Lista\ListaEntidade.h"
 #include <math.h>
 
-namespace Jogo {
+namespace Fantasy {
 
     namespace Gerenciador {
 

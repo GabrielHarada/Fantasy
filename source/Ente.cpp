@@ -1,15 +1,15 @@
 #include "..\header\Ente.h"
 
-Jogo::Ente::Ente(const IDs::IDs ID) :
+Fantasy::Ente::Ente(const IDs::IDs ID) :
     ID(ID), pGrafico(pGrafico->getGerenciadorGrafico())
 {
 
 }
 
-Jogo::Ente::~Ente() {
+Fantasy::Ente::~Ente() {
 
 }
 
-const IDs::IDs Jogo::Ente::getID() const {
+const IDs::IDs Fantasy::Ente::getID() const {
     return ID;
 }
