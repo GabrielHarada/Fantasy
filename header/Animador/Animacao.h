@@ -2,6 +2,7 @@
 
 #include "..\Gerenciador\GerenciadorGrafico.h"
 #include <SFML\Graphics.hpp>
+#include "Imagem.h"
 #include <map>
 
 namespace Fantasy {
@@ -10,13 +11,15 @@ namespace Fantasy {
 
         class Animacao {
         private:
-            Gerenciador::GerenciadorGrafico* pGrafico;
             sf::RectangleShape* corpo;
-            std::map<std::string, sf::Texture*> mapTextura;
+            std::map<std::string, Imagem*> mapImagem;
+            sf::Clock relogio;
+            std::string imgAtual;
         public:
             Animacao(sf::RectangleShape* corpo);
             ~Animacao();
-            void atualizar();
+            void atualizar(const bool paraEsquerda, std::string imgAtual);
+            void addAnimacao(const char* caminhoTextura, std::string nomeAnimacao, int qtdImagem, const float tempoTroca, const sf::Vector2u escala);
         };
 
     }

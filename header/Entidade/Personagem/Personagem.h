@@ -4,6 +4,7 @@
 #include <time.h>
 
 #include "..\Entidade.h"
+#include "..\..\Animador\Animacao.h"
 
 #define GRAVIDADE 0.7f
 

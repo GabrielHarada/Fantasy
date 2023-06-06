@@ -39,7 +39,7 @@ sf::RenderWindow* Fantasy::Gerenciador::GerenciadorGrafico::getWindow(){
 sf::Texture Fantasy::Gerenciador::GerenciadorGrafico::carregarTextura(const char* caminhoTextura){
     sf::Texture textura;
     if (!textura.loadFromFile(caminhoTextura)) {
-        std::cout << "ERRO::Jungle::Gerenciador::GerenciadorGrafico::nao foi possivel encontrar o caminho da textura - " << caminhoTextura << std::endl;
+        std::cout << "ERRO::Fantasy::Gerenciador::GerenciadorGrafico::nao foi possivel encontrar o caminho da textura - " << caminhoTextura << std::endl;
         exit(1);
     }
     return textura;

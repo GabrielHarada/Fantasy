@@ -114,6 +114,9 @@
     <ClCompile Include="source\Animador\Animacao.cpp">
       <Filter>Source Files\Animacao</Filter>
     </ClCompile>
+    <ClCompile Include="source\Animador\Imagem.cpp">
+      <Filter>Source Files\Animacao</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Entidade\Entidade.h">
@@ -165,6 +168,9 @@
       <Filter>Header Files\Entidades\Obstaculo\Plataforma</Filter>
     </ClInclude>
     <ClInclude Include="header\Animador\Animacao.h">
+      <Filter>Header Files\Animacao</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Animador\Imagem.h">
       <Filter>Header Files\Animacao</Filter>
     </ClInclude>
   </ItemGroup>

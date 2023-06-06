@@ -15,6 +15,7 @@ namespace Fantasy {
 				private:
 					void inicializa();
 					bool noChao;
+					Animador::Animacao animacao;
 				public:
 					Jogador(const sf::Vector2f pos, const sf::Vector2f tam);
 					~Jogador();
