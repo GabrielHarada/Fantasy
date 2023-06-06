@@ -61,6 +61,12 @@
     <Filter Include="Header Files\Entidades\Obstaculo\Plataforma">
       <UniqueIdentifier>{9bf1d6be-3e5a-4c4e-a1c6-711e28db8463}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Animacao">
+      <UniqueIdentifier>{c7004f6a-4e27-46af-86df-7130a2274378}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Animacao">
+      <UniqueIdentifier>{187ea7a2-7935-42fa-bdea-c9025cd7e85c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Ente.cpp">
@@ -104,6 +110,9 @@
     </ClCompile>
     <ClCompile Include="source\Entidade\Personagem\Inimigo\Inimigo.cpp">
       <Filter>Source Files\Entidades\Personagem\Inimigo</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Animador\Animacao.cpp">
+      <Filter>Source Files\Animacao</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="header\Entidade\Obstaculo\Plataforma\Plataforma.h">
       <Filter>Header Files\Entidades\Obstaculo\Plataforma</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Animador\Animacao.h">
+      <Filter>Header Files\Animacao</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

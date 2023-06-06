@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Animador\Animacao.cpp" />
     <ClCompile Include="source\Ente.cpp" />
     <ClCompile Include="source\Entidade\Entidade.cpp" />
     <ClCompile Include="source\Entidade\Obstaculo\Caixa\Caixa.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="source\Principal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\Animador\Animacao.h" />
     <ClInclude Include="header\Ente.h" />
     <ClInclude Include="header\Entidade\Entidade.h" />
     <ClInclude Include="header\Entidade\Obstaculo\Caixa\Caixa.h" />
