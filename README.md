@@ -1,0 +1,5 @@
+# Fantasy
+
+# JOGO OPERA EM WINDOWS 10
+# COMPILADOR:
+# VERSÃO SFML:
