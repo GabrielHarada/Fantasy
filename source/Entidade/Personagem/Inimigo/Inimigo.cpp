@@ -1,9 +1,8 @@
 #include "..\..\header\Entidade\Personagem\Inimigo\Inimigo.h"
 
-Fantasy::Entidade::Personagem::Inimigo::Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador):
-	Personagem(pos, tam, VELOCIDADE_INIMIGO, IDs::IDs::inimigo), jogador(jogador), dtAux(0.0f)
+Fantasy::Entidade::Personagem::Inimigo::Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador, const IDs::IDs ID) :
+	Personagem(pos, tam, VELOCIDADE_INIMIGO, ID), jogador(jogador), dtAux(0.0f)
 {
-	inicializa();
 	srand(time(NULL));
 	moveAleatorio = rand() % 3;
 	if (moveAleatorio == 0) {
@@ -15,12 +14,6 @@ Fantasy::Entidade::Personagem::Inimigo::Inimigo::Inimigo(const sf::Vector2f pos,
 	else {
 		andar(false);
 	}
-}
-
-void Fantasy::Entidade::Personagem::Inimigo::Inimigo::inicializa(){
-	animacao.addAnimacao("image/Inimigo/Esqueleto/Parado.png", "Parado", 11, 0.12f, sf::Vector2f(1.0f, 1.10f));
-	animacao.addAnimacao("image/Inimigo/Esqueleto/Anda.png", "Anda", 13, 0.15f, sf::Vector2f(1.0f, 1.10f));
-	corpo.setOrigin(sf::Vector2f(tam.x / 12.0f, tam.y / 8.5f));
 }
 
 Fantasy::Entidade::Personagem::Inimigo::Inimigo::~Inimigo()
@@ -44,8 +37,7 @@ void Fantasy::Entidade::Personagem::Inimigo::Inimigo::atualizaMovimentoAleatorio
 	}
 }
 
-void Fantasy::Entidade::Personagem::Inimigo::Inimigo::atualizar()
-{
+void Fantasy::Entidade::Personagem::Inimigo::Inimigo::moveInimigo() {
 	sf::Vector2f posJogador = jogador->getPos();
 	sf::Vector2f posInimigo = getPos();
 	if (fabs(posJogador.x - posInimigo.x) <= RAIO_PERSEGUIR_X && fabs(posJogador.y - posInimigo.y) <= RAIO_PERSEGUIR_Y) {
@@ -59,6 +51,9 @@ void Fantasy::Entidade::Personagem::Inimigo::Inimigo::atualizar()
 	else {
 		atualizaMovimentoAleatorio();
 	}
+}
+void Fantasy::Entidade::Personagem::Inimigo::Inimigo::atualizar() {
+	moveInimigo();
 	atualizarPosicao();
 	dtAux += relogio.getElapsedTime().asSeconds() * 100;
 	relogio.restart();
@@ -72,9 +67,14 @@ void Fantasy::Entidade::Personagem::Inimigo::Inimigo::colisao(Entidade* outraEnt
 		//std::cout << "Bate jogador e jogador pode bater no inimigo" << std::endl;
 	}
 	break;
-	case (IDs::IDs::inimigo):
+	case (IDs::IDs::minotauro):
 	{
 		//std::cout << "Empurra inimigo" << std::endl;
+	}
+	break;
+	case(IDs::IDs::esqueleto):
+	{
+
 	}
 	break;
 	}

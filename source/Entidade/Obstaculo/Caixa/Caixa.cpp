@@ -15,7 +15,7 @@ void Fantasy::Entidade::Obstaculo::Caixa::colisao(Entidade* outraEntidade, sf::V
     sf::Vector2f posOutro = outraEntidade->getPos();
     sf::Vector2f tamOutro = outraEntidade->getTam();
 
-    if (outraEntidade->getID() == IDs::IDs::jogador || outraEntidade->getID() == IDs::IDs::inimigo) {
+    if (outraEntidade->getID() == IDs::IDs::jogador || outraEntidade->getID() == IDs::IDs::esqueleto || outraEntidade->getID() == IDs::IDs::ciclope) {
         colisaoObstaculo(ds, static_cast<Personagem::Personagem*>(outraEntidade));
     }
 }

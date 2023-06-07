@@ -22,6 +22,10 @@ void Fantasy::Gerenciador::GerenciadorEvento::setJogador(Entidade::Personagem::J
     this->pJogador = pJogador;
 }
 
+Fantasy::Entidade::Personagem::Jogador::Jogador* Fantasy::Gerenciador::GerenciadorEvento::getJogador() {
+    return pJogador;
+}
+
 void Fantasy::Gerenciador::GerenciadorEvento::verificaTeclaPressionada(sf::Keyboard::Key tecla) {
     if (tecla == sf::Keyboard::A) {
         pJogador->andar(true);

@@ -15,7 +15,7 @@ namespace Fantasy {
 
 
         public:
-            Fundo();
+            Fundo(const IDs::IDs ID);
             ~Fundo();
             void desenhar();
             void addCamada(const char* caminhoTextura, const float vel);

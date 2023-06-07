@@ -23,12 +23,14 @@ namespace Fantasy {
 					Jogador::Jogador* jogador;
 					float dtAux;
 					short moveAleatorio;
-					void inicializa();
-				public:
-					Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador);
-					~Inimigo();
+
+					virtual void inicializa() = 0;
+					void moveInimigo();
 					void atualizaMovimentoAleatorio();
-					void atualizar();
+				public:
+					Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador, const IDs::IDs ID);
+					~Inimigo();
+					virtual void atualizar();
 					void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));
 				};
 			}

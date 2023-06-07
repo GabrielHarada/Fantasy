@@ -34,8 +34,8 @@ void Fantasy::Entidade::Personagem::Jogador::Jogador::atualizar() {
 
 void Fantasy::Entidade::Personagem::Jogador::Jogador::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
     switch (outraEntidade->getID()) {
-        case (IDs::IDs::inimigo):
-        {
+        case (IDs::IDs::esqueleto):
+    {
             //std::cout << "Pode bater no inimigo e inimigo pode bater no jogador" << std::endl;
         }
         break;

@@ -1,10 +1,11 @@
 #include "..\..\header\Parallax\Fundo.h"
 
-Fantasy::Parallax::Fundo::Fundo() :
-    Ente(IDs::IDs::fundo), posAnteriorCamera(pGrafico->getCamera().getCenter()),
-        camadas()
+Fantasy::Parallax::Fundo::Fundo(const IDs::IDs ID) :
+    Ente(ID), posAnteriorCamera(pGrafico->getCamera().getCenter()),
+    camadas()
     {
     
+    /*
     addCamada("image/Fase/Fase1/camada1.png", 0.0f);
     addCamada("image/Fase/Fase1/camada2.png", 0.0f);
     addCamada("image/Fase/Fase1/camada3.png", 0.1f);
@@ -13,7 +14,7 @@ Fantasy::Parallax::Fundo::Fundo() :
     addCamada("image/Fase/Fase1/camada6.png", 0.5f);
     addCamada("image/Fase/Fase1/camada7.png", 0.75f);
     addCamada("image/Fase/Fase1/camada8.png", 1.5f);
-    
+    */
 
     /*
     addCamada("image/Fase/FLorestaBranca/camada1.png", 0.0f);
