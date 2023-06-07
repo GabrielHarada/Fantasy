@@ -14,11 +14,12 @@ namespace Fantasy {
         namespace Obstaculo {
 
             class Plataforma : public Obstaculo {
+            private:
+                int tipoPlataforma;
             public:
-                Plataforma(sf::Vector2f pos, sf::Vector2f tam);
+                Plataforma(sf::Vector2f pos, sf::Vector2f tam, int tipoPlataforma = 1);
                 ~Plataforma();
                 void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));
-                void colisaoObstaculo(sf::Vector2f ds, Personagem::Personagem* pPersonagem);
             };
 
         }

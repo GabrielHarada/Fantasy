@@ -19,7 +19,7 @@ namespace Fantasy {
             Animacao(sf::RectangleShape* corpo);
             ~Animacao();
             void atualizar(const bool paraEsquerda, std::string imgAtual);
-            void addAnimacao(const char* caminhoTextura, std::string nomeAnimacao, int qtdImagem, const float tempoTroca, const sf::Vector2u escala);
+            void addAnimacao(const char* caminhoTextura, std::string nomeAnimacao, const unsigned int qtdImagem, const float tempoTroca, const sf::Vector2f escala);
         };
 
     }

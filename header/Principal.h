@@ -13,6 +13,9 @@
 
 #include "..\header\Lista\ListaEntidade.h"
 
+#include "Parallax\Fundo.h"
+
+
 namespace Fantasy {
 
 	class Principal {
@@ -22,10 +25,15 @@ namespace Fantasy {
 		Gerenciador::GerenciadorColisao colisor;
 		Lista::ListaEntidade listaPersonagem;
 		Lista::ListaEntidade listaObstaculo;
+		Parallax::Fundo fundo;
+
 	public:
 		Principal();
 		~Principal();
 		void executar();
 		void instanciaEntidades();
+		void criaPlataforma(const sf::Vector2f pos);
+		void criaCaixa(const sf::Vector2f pos);
+		void criaInimigo(const sf::Vector2f pos, Entidade::Personagem::Jogador::Jogador* jogador);
 	};
 }

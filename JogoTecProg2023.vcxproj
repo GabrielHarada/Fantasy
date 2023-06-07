@@ -164,11 +164,14 @@
     <ClCompile Include="source\Entidade\Personagem\Inimigo\Inimigo.cpp" />
     <ClCompile Include="source\Entidade\Personagem\Jogador\Jogador.cpp" />
     <ClCompile Include="source\Entidade\Personagem\Personagem.cpp" />
+    <ClCompile Include="source\Fase\Fase.cpp" />
     <ClCompile Include="source\Gerenciador\GerenciadorColisao.cpp" />
     <ClCompile Include="source\Gerenciador\GerenciadorEvento.cpp" />
     <ClCompile Include="source\Gerenciador\GerenciadorGrafico.cpp" />
     <ClCompile Include="source\Lista\ListaEntidade.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Parallax\Camada.cpp" />
+    <ClCompile Include="source\Parallax\Fundo.cpp" />
     <ClCompile Include="source\Principal.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +185,7 @@
     <ClInclude Include="header\Entidade\Personagem\Inimigo\Inimigo.h" />
     <ClInclude Include="header\Entidade\Personagem\Jogador\Jogador.h" />
     <ClInclude Include="header\Entidade\Personagem\Personagem.h" />
+    <ClInclude Include="header\Fase\Fase.h" />
     <ClInclude Include="header\Gerenciador\GerenciadorColisao.h" />
     <ClInclude Include="header\Gerenciador\GerenciadorEvento.h" />
     <ClInclude Include="header\Gerenciador\GerenciadorGrafico.h" />
@@ -189,6 +193,8 @@
     <ClInclude Include="header\Lista\Elemento.h" />
     <ClInclude Include="header\Lista\Lista.h" />
     <ClInclude Include="header\Lista\ListaEntidade.h" />
+    <ClInclude Include="header\Parallax\Camada.h" />
+    <ClInclude Include="header\Parallax\Fundo.h" />
     <ClInclude Include="header\Principal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

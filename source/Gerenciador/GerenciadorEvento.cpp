@@ -32,6 +32,9 @@ void Fantasy::Gerenciador::GerenciadorEvento::verificaTeclaPressionada(sf::Keybo
     else if (tecla == sf::Keyboard::W) {
         pJogador->pular();
     }
+    else if (tecla == sf::Keyboard::Space) {
+        pJogador->atacar(true);
+    }
     else if (tecla == sf::Keyboard::Escape) {
         pGrafico->fecharJanela();
     }

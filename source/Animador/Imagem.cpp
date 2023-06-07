@@ -1,6 +1,6 @@
 #include "..\..\header\Animador\Imagem.h"
 
-Fantasy::Animador::Imagem::Imagem(const char* caminhoTextura, const unsigned int qtdImagem, const float tempoTroca, const sf::Vector2u escala) :
+Fantasy::Animador::Imagem::Imagem(const char* caminhoTextura, const unsigned int qtdImagem, const float tempoTroca, const sf::Vector2f escala) :
     pGrafico(pGrafico->getGerenciadorGrafico()), qtdImagem(qtdImagem), tempoTroca(tempoTroca),
     tempoTotal(0.0f), tamanho(0, 0, 0, 0), imgAtual(0), textura(pGrafico->carregarTextura(caminhoTextura)),
     escala(escala)
@@ -32,6 +32,11 @@ void Fantasy::Animador::Imagem::atualizar(const bool paraEsquerda, const float d
     }
 }
 
+void Fantasy::Animador::Imagem::resetar() {
+    imgAtual = 0;
+    tempoTotal = 0.0f;
+}
+
 const sf::IntRect Fantasy::Animador::Imagem::getTamanho() const {
     return tamanho;
 }
@@ -40,6 +45,6 @@ const sf::Texture* Fantasy::Animador::Imagem::getTextura() const {
     return &textura;
 }
 
-const sf::Vector2u Fantasy::Animador::Imagem::getEscala() const {
+const sf::Vector2f Fantasy::Animador::Imagem::getEscala() const {
     return escala;
 }

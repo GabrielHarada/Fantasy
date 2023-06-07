@@ -2,7 +2,8 @@
 
 Fantasy::Entidade::Personagem::Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs::IDs ID) :
 	Entidade(pos, tam, ID), podeAndar(false), paraEsquerda(false), relogio(),
-	dt(0.0f), velFinal(sf::Vector2f(vel, 0.0f)), velMax(vel)
+    dt(0.0f), velFinal(sf::Vector2f(vel, 0.0f)), velMax(vel), atacando(false),
+    animacao(&corpo)
 {
 	corpo.setPosition(pos);
 }
@@ -13,6 +14,7 @@ Fantasy::Entidade::Personagem::Personagem::~Personagem()
 
 void Fantasy::Entidade::Personagem::Personagem::andar(const bool paraEsquerda)
 {
+    atacando = false;
 	podeAndar = true;
 	this->paraEsquerda = paraEsquerda;
 }
@@ -21,6 +23,12 @@ void Fantasy::Entidade::Personagem::Personagem::parar()
 {
 	podeAndar = false;
 }
+
+void Fantasy::Entidade::Personagem::Personagem::atacar(const bool atacando) {
+    podeAndar = false;
+    this->atacando = atacando;
+}
+
 
 void Fantasy::Entidade::Personagem::Personagem::atualizarPosicao() {
     dt = relogio.getElapsedTime().asSeconds();
@@ -52,6 +60,15 @@ void Fantasy::Entidade::Personagem::Personagem::setVelFinal(sf::Vector2f velFina
     this->velFinal = velFinal;
 }
 
-const sf::Vector2f Fantasy::Entidade::Personagem::Personagem::getVelFinal() {
+const sf::Vector2f Fantasy::Entidade::Personagem::Personagem::getVelFinal() const {
     return velFinal;
+}
+
+void Fantasy::Entidade::Personagem::Personagem::atualizarAnimacao() {
+    if (podeAndar) {
+        animacao.atualizar(paraEsquerda, "Anda");
+    }
+    else {
+        animacao.atualizar(paraEsquerda, "Parado");
+    }
 }

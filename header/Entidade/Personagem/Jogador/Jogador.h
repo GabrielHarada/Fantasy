@@ -4,7 +4,7 @@
 #include "..\Personagem.h"
 
 #define VELOCIDADE_JOGADOR 200.0f
-#define TAMANHO_PULO 0.03f
+#define TAMANHO_PULO 0.1f
 
 namespace Fantasy {
 	namespace Entidade {
@@ -15,7 +15,6 @@ namespace Fantasy {
 				private:
 					void inicializa();
 					bool noChao;
-					Animador::Animacao animacao;
 				public:
 					Jogador(const sf::Vector2f pos, const sf::Vector2f tam);
 					~Jogador();
@@ -23,6 +22,7 @@ namespace Fantasy {
 					void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));
 					void pular();
 					void podePular();
+					void atualizarAnimacao();
 				};
 			}
 		}

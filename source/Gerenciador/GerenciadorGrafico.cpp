@@ -3,7 +3,8 @@
 Fantasy::Gerenciador::GerenciadorGrafico* Fantasy::Gerenciador::GerenciadorGrafico::pGrafico = nullptr;
 
 Fantasy::Gerenciador::GerenciadorGrafico::GerenciadorGrafico():
-    window(new sf::RenderWindow(sf::VideoMode(1280.0f, 1024.0f), "Fantasy++"))
+    window(new sf::RenderWindow(sf::VideoMode(TELA_X, TELA_Y), "Fantasy++")),
+    camera(sf::Vector2f(TELA_X / 2.0f, TELA_Y / 2.0f), sf::Vector2f(TELA_X, TELA_Y))
 {
     if(window == nullptr){
         std::cout << "ERROR::Fantasy::Gerenciador::GerenciadorGrafico nao foi possivel criar uma janela grafica" << std::endl;
@@ -63,4 +64,13 @@ void Fantasy::Gerenciador::GerenciadorGrafico::fecharJanela(){
 
 const bool Fantasy::Gerenciador::GerenciadorGrafico::verificaJanelaAberta(){
     return window->isOpen();
+}
+
+void Fantasy::Gerenciador::GerenciadorGrafico::atualizarCamera(const sf::Vector2f posJogador) {
+    camera.setCenter(posJogador.x, 300.0f);
+    window->setView(camera);
+}
+
+const sf::View Fantasy::Gerenciador::GerenciadorGrafico::getCamera() {
+    return camera;
 }

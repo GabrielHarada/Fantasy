@@ -2,7 +2,10 @@
 
 #include <SFML\Graphics.hpp>
 #include <iostream>
-    
+
+#define TELA_X 800.0f
+#define TELA_Y 600.0f
+
 namespace Fantasy {
 
     namespace Gerenciador {
@@ -10,6 +13,7 @@ namespace Fantasy {
         class GerenciadorGrafico {
         private:
             sf::RenderWindow* window;
+            sf::View camera;
 
             //a construtora privada faz parte do padrão de projeto singleton
             static GerenciadorGrafico* pGrafico;
@@ -24,6 +28,8 @@ namespace Fantasy {
             void mostraElementos();
             void fecharJanela();
             const bool verificaJanelaAberta();
+            void atualizarCamera(const sf::Vector2f posJogador);
+            const sf::View getCamera();
         };
 
     }
