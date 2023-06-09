@@ -4,12 +4,10 @@
 #include <math.h>
 
 
-Fantasy::Entidade::Personagem::Jogador::Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam):
-    Personagem(pos, tam, VELOCIDADE_JOGADOR, IDs::IDs::jogador), noChao(false)
+Fantasy::Entidade::Personagem::Jogador::Jogador::Jogador(const sf::Vector2f pos):
+    Personagem(pos, sf::Vector2f(TAMANHO_JOGADOR_X, TAMANHO_JOGADOR_Y), VELOCIDADE_JOGADOR, IDs::IDs::jogador), noChao(false)
 {
-    //corpo.setFillColor(sf::Color::Green);
 	inicializa();
-    //animacao.addAnimacao("image/Jogador/Anda.png", "Anda", 6, 0.5f, sf::Vector2u(2, 2));
 }
 
 void Fantasy::Entidade::Personagem::Jogador::Jogador::inicializa() {

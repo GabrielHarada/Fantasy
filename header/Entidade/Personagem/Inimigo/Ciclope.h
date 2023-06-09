@@ -3,6 +3,9 @@
 #include "..\Jogador\Jogador.h"
 #include "..\Inimigo\Inimigo.h"
 
+#define TAMANHO_ESQUELETO_X 50.0f
+#define TAMANHO_ESQUELETO_Y 90.0f
+
 namespace Fantasy {
 
     namespace Entidade {
@@ -16,7 +19,7 @@ namespace Fantasy {
                 private:
                     void inicializa();
                 public:
-                    Ciclope(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador);
+                    Ciclope(const sf::Vector2f pos, Jogador::Jogador* jogador);
                     ~Ciclope();
                 };
 

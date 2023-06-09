@@ -18,7 +18,6 @@ namespace Fantasy {
             EstadoJogar(Fase::Fase* fase);
             ~EstadoJogar();
             void executar();
-            //void desenhar();
         };
 
     }

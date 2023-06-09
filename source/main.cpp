@@ -4,5 +4,7 @@
 int main()
 {
 	Fantasy::Principal objPrincipal;
+	objPrincipal.executar();
+
 	return 0;
 }

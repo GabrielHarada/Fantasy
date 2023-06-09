@@ -22,6 +22,8 @@ namespace Fantasy {
 				bool atacando;
 				sf::Clock relogio;
 				float dt;
+
+				virtual void atualizarAnimacao();
 			public:
 				Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs::IDs ID);
 				~Personagem();
@@ -33,7 +35,6 @@ namespace Fantasy {
 				void atualizarPosicao();
 				virtual void atualizar() = 0;
 				virtual void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f)) = 0;
-				virtual void atualizarAnimacao();
 			};
 		}
 	}

@@ -10,9 +10,3 @@ Fantasy::Entidade::Personagem::Inimigo::Chefao::Chefao::Chefao(const sf::Vector2
 Fantasy::Entidade::Personagem::Inimigo::Chefao::Chefao::~Chefao()
 {
 }
-
-
-void Fantasy::Entidade::Personagem::Inimigo::Chefao::Chefao::atualizarAnimacao()
-{
-}
-

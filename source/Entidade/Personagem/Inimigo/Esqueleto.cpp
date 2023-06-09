@@ -1,7 +1,7 @@
 #include "..\..\..\..\header\Entidade\Personagem\Inimigo\Esqueleto.h"
 
-Fantasy::Entidade::Personagem::Inimigo::Esqueleto::Esqueleto(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador) :
-    Inimigo(pos, tam, jogador, IDs::IDs::esqueleto)
+Fantasy::Entidade::Personagem::Inimigo::Esqueleto::Esqueleto(const sf::Vector2f pos, Jogador::Jogador* jogador) :
+    Inimigo(pos, sf::Vector2f(TAMANHO_ESQUELETO_X, TAMANHO_ESQUELETO_Y), jogador, IDs::IDs::esqueleto)
 {
     inicializa();
 }

@@ -2,6 +2,9 @@
 
 #include "Inimigo.h"
 
+#define TAMANHO_ESQUELETO_X 50.0f
+#define TAMANHO_ESQUELETO_Y 90.0f
+
 namespace Fantasy {
 
     namespace Entidade {
@@ -14,7 +17,7 @@ namespace Fantasy {
                 private:
                     void inicializa();
                 public:
-                    Esqueleto(const sf::Vector2f pos, const sf::Vector2f tam, Jogador::Jogador* jogador);
+                    Esqueleto(const sf::Vector2f pos, Jogador::Jogador* jogador);
                     ~Esqueleto();
                 };
 

@@ -3,7 +3,7 @@
 Fantasy::Gerenciador::GerenciadorEvento* Fantasy::Gerenciador::GerenciadorEvento::pEvento = nullptr;
 
 Fantasy::Gerenciador::GerenciadorEvento::GerenciadorEvento() :
-    pGrafico(pGrafico->getGerenciadorGrafico())
+    pGrafico(pGrafico->getGerenciadorGrafico()), pJogador(nullptr)
 {
 
 }

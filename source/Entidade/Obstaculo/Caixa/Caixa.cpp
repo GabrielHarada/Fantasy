@@ -1,8 +1,8 @@
 #pragma once
 #include "..\..\header\Entidade\Obstaculo\Caixa\Caixa.h"
 
-Fantasy::Entidade::Obstaculo::Caixa::Caixa(sf::Vector2f pos, sf::Vector2f tam) :
-    Obstaculo(pos, tam, IDs::IDs::caixa, CAMINHO_TEXTURA_CAIXA), lentidao(0.25f)
+Fantasy::Entidade::Obstaculo::Caixa::Caixa(sf::Vector2f pos) :
+    Obstaculo(pos, sf::Vector2f(TAMANHO_CAIXA_X, TAMANHO_CAIXA_Y), IDs::IDs::caixa, CAMINHO_TEXTURA_CAIXA), lentidao(0.25f)
 {
 
 }
@@ -15,7 +15,8 @@ void Fantasy::Entidade::Obstaculo::Caixa::colisao(Entidade* outraEntidade, sf::V
     sf::Vector2f posOutro = outraEntidade->getPos();
     sf::Vector2f tamOutro = outraEntidade->getTam();
 
-    if (outraEntidade->getID() == IDs::IDs::jogador || outraEntidade->getID() == IDs::IDs::esqueleto || outraEntidade->getID() == IDs::IDs::ciclope) {
+    if (outraEntidade->getID() == IDs::IDs::jogador || outraEntidade->getID() == IDs::IDs::esqueleto || outraEntidade->getID() == IDs::IDs::ciclope ||
+        outraEntidade->getID() == IDs::IDs::minotauro) {
         colisaoObstaculo(ds, static_cast<Personagem::Personagem*>(outraEntidade));
     }
 }

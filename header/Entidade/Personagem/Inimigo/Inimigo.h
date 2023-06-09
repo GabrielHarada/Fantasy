@@ -24,7 +24,6 @@ namespace Fantasy {
 					float dtAux;
 					short moveAleatorio;
 
-					virtual void inicializa() = 0;
 					void moveInimigo();
 					void atualizaMovimentoAleatorio();
 				public:
