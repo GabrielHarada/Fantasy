@@ -4,7 +4,7 @@
 Fantasy::Principal::Principal() :
 	pGrafico(pGrafico->getGerenciadorGrafico()),
 	pEvento(pEvento->getGerenciadorEvento()),
-	fase(nullptr)
+	maquinaEstado()
 {
 	if (pGrafico == nullptr) {
 		std::cout << "ERROR::Fantasy::Principal nao foi possivel criar o GerenciadorGrafico" << std::endl;
@@ -15,28 +15,12 @@ Fantasy::Principal::Principal() :
 		exit(1);
 	}
 
-	//inicializa();
-	criarFase();
+	maquinaEstado.addEstado(IDs::IDs::jogar_florestaBranca);
 	executar();
 }
 
 Fantasy::Principal::~Principal() {
-	if (fase) {
-		delete(fase);
-		fase = nullptr;
-	}
-}
 
-void Fantasy::Principal::criarFase() {
-	Fase::FlorestaBranca* aux = new Fase::FlorestaBranca();
-	//Fase::FlorestaVermelha* aux = new Fase::FlorestaVermelha();
-	if (aux == nullptr) {
-		std::cout << "Fantasy::Principal::nao foi possivel criar fase" << std::endl;
-		exit(1);
-	}
-	fase = static_cast<Fase::Fase*>(aux);
-	fase->criarFundo();
-	fase->criarMapa();
 }
 
 void Fantasy::Principal::executar() {
@@ -45,7 +29,7 @@ void Fantasy::Principal::executar() {
 
 		pGrafico->limpaJanela();
 
-		fase->executar();
+		maquinaEstado.executar();
 
 		pGrafico->mostraElementos();
 	}

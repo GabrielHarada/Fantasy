@@ -168,6 +168,9 @@
     <ClCompile Include="source\Entidade\Personagem\Inimigo\Inimigo.cpp" />
     <ClCompile Include="source\Entidade\Personagem\Jogador\Jogador.cpp" />
     <ClCompile Include="source\Entidade\Personagem\Personagem.cpp" />
+    <ClCompile Include="source\Estado\Estado.cpp" />
+    <ClCompile Include="source\Estado\EstadoJogar.cpp" />
+    <ClCompile Include="source\Estado\MaquinaEstado.cpp" />
     <ClCompile Include="source\Fase\Fase.cpp" />
     <ClCompile Include="source\Fase\FlorestaBranca.cpp" />
     <ClCompile Include="source\Fase\FlorestaVermelha.cpp" />
@@ -195,6 +198,9 @@
     <ClInclude Include="header\Entidade\Personagem\Inimigo\Inimigo.h" />
     <ClInclude Include="header\Entidade\Personagem\Jogador\Jogador.h" />
     <ClInclude Include="header\Entidade\Personagem\Personagem.h" />
+    <ClInclude Include="header\Estado\Estado.h" />
+    <ClInclude Include="header\Estado\EstadoJogar.h" />
+    <ClInclude Include="header\Estado\MaquinaEstado.h" />
     <ClInclude Include="header\Fase\Fase.h" />
     <ClInclude Include="header\Fase\FlorestaBranca.h" />
     <ClInclude Include="header\Fase\FlorestaVermelha.h" />

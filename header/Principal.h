@@ -7,6 +7,7 @@
 
 #include "Fase\FlorestaBranca.h"
 #include "Fase\FlorestaVermelha.h"
+#include "Estado\MaquinaEstado.h"
 
 namespace Fantasy {
 
@@ -14,13 +15,13 @@ namespace Fantasy {
 	private:
 		Gerenciador::GerenciadorGrafico* pGrafico;
 		Gerenciador::GerenciadorEvento* pEvento;
-		Fase::Fase* fase;
+		Estado::MaquinaEstado maquinaEstado;
+		//Fase::Fase* fase;
 
-		void inicializa();
+		//void criarFase();
 	public:
 		Principal();
 		~Principal();
-		void criarFase();
 		void executar();
 	};
 }
