@@ -1,10 +1,11 @@
 #pragma once
 #include "..\header\Principal.h"
 
-Fantasy::Principal::Principal() :
-	pGrafico(pGrafico->getGerenciadorGrafico()),
-	pEvento(pEvento->getGerenciadorEvento()),
-	pGerenciadorEstado(pGerenciadorEstado->getGerenciadorEstado())
+Fantasy::Gerenciador::GerenciadorGrafico* Fantasy::Principal::pGrafico = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
+Fantasy::Gerenciador::GerenciadorEstado* Fantasy::Principal::pGerenciadorEstado = Gerenciador::GerenciadorEstado::getGerenciadorEstado();
+Fantasy::Gerenciador::GerenciadorEvento* Fantasy::Principal::pEvento = Gerenciador::GerenciadorEvento::getGerenciadorEvento();
+
+Fantasy::Principal::Principal()
 {
 	if (pGrafico == nullptr) {
 		std::cout << "ERROR::Fantasy::Principal nao foi possivel criar o GerenciadorGrafico" << std::endl;
@@ -18,7 +19,6 @@ Fantasy::Principal::Principal() :
 		std::cout << "ERROR::Fantasy::Principal::nao foi possivel criar um GerenciadorEstado" << std::endl;
 		exit(1);
 	}
-	pGerenciadorEstado->addEstado(IDs::IDs::jogar_florestaBranca);
 	inicializa();
 }
 
@@ -27,7 +27,7 @@ Fantasy::Principal::~Principal() {
 }
 
 void Fantasy::Principal::inicializa() {
-	pGerenciadorEstado->addEstado(IDs::IDs::jogar_florestaVermelha);
+	pGerenciadorEstado->addEstado(IDs::IDs::estado_menu_principal);
 }
 
 void Fantasy::Principal::executar() {

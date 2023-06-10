@@ -10,7 +10,7 @@ namespace Fantasy {
 
     class Ente {
     protected:
-        Gerenciador::GerenciadorGrafico* pGrafico;
+        static Gerenciador::GerenciadorGrafico* pGrafico;
         const IDs::IDs ID;
     public:
         Ente(const IDs::IDs ID);

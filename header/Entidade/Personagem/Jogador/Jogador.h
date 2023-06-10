@@ -9,6 +9,9 @@
 #define TAMANHO_JOGADOR_Y 90.0f
 
 namespace Fantasy {
+	namespace Observador {
+		class ObservadorJogador;
+	}
 	namespace Entidade {
 		namespace Personagem {
 			namespace Jogador {
@@ -17,6 +20,7 @@ namespace Fantasy {
 				private:
 					void inicializa();
 					bool noChao;
+					Observador::ObservadorJogador* observadorJogador;
 				public:
 					Jogador(const sf::Vector2f pos);
 					~Jogador();
@@ -25,6 +29,9 @@ namespace Fantasy {
 					void pular();
 					void podePular();
 					void atualizarAnimacao();
+					void ativarObservador();
+					void desativarObservador();
+					const bool getAtivarObservador() const;
 				};
 			}
 		}

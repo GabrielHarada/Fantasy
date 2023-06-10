@@ -1,15 +1,25 @@
 #include "..\..\header\Gerenciador\GerenciadorEvento.h"
+#include "..\..\header\Gerenciador\GerenciadorEstado.h"
 
 Fantasy::Gerenciador::GerenciadorEvento* Fantasy::Gerenciador::GerenciadorEvento::pEvento = nullptr;
+Fantasy::Gerenciador::GerenciadorGrafico* Fantasy::Gerenciador::GerenciadorEvento::pGrafico = GerenciadorGrafico::getGerenciadorGrafico();
+Fantasy::Gerenciador::GerenciadorEstado* Fantasy::Gerenciador::GerenciadorEvento::pGEstado = GerenciadorEstado::getGerenciadorEstado();
+Fantasy::Lista::ListaObservador* Fantasy::Gerenciador::GerenciadorEvento::listaObservador = nullptr;
 
-Fantasy::Gerenciador::GerenciadorEvento::GerenciadorEvento() :
-    pGrafico(pGrafico->getGerenciadorGrafico()), pJogador(nullptr)
+Fantasy::Gerenciador::GerenciadorEvento::GerenciadorEvento()
 {
-
+    listaObservador = new Lista::ListaObservador();
+    if (listaObservador == nullptr) {
+        std::cout << "ERROR::Fantasy::Gerenciador::GerenciadorEvento::nao foi possivel criar uma Lista de Observadores" << std::endl;
+        exit(1);
+    }
 }
 
 Fantasy::Gerenciador::GerenciadorEvento::~GerenciadorEvento() {
-
+    if (listaObservador) {
+        delete(listaObservador);
+        listaObservador = nullptr;
+    }
 }
 
 Fantasy::Gerenciador::GerenciadorEvento* Fantasy::Gerenciador::GerenciadorEvento::getGerenciadorEvento() {
@@ -18,46 +28,35 @@ Fantasy::Gerenciador::GerenciadorEvento* Fantasy::Gerenciador::GerenciadorEvento
     }
     return pEvento;
 }
-void Fantasy::Gerenciador::GerenciadorEvento::setJogador(Entidade::Personagem::Jogador::Jogador* pJogador) {
-    this->pJogador = pJogador;
+
+void Fantasy::Gerenciador::GerenciadorEvento::addObservador(Observador::Observador* observador) {
+    listaObservador->addObservador(observador);
 }
 
-Fantasy::Entidade::Personagem::Jogador::Jogador* Fantasy::Gerenciador::GerenciadorEvento::getJogador() {
-    return pJogador;
+void Fantasy::Gerenciador::GerenciadorEvento::removerObservador(Observador::Observador* observador) {
+    listaObservador->removerObservador(observador);
 }
 
-void Fantasy::Gerenciador::GerenciadorEvento::verificaTeclaPressionada(sf::Keyboard::Key tecla) {
-    if (tecla == sf::Keyboard::A) {
-        pJogador->andar(true);
-    }
-    else if (tecla == sf::Keyboard::D) {
-        pJogador->andar(false);
-    }
-    else if (tecla == sf::Keyboard::W) {
-        pJogador->pular();
-    }
-    else if (tecla == sf::Keyboard::Space) {
-        pJogador->atacar(true);
-    }
-    else if (tecla == sf::Keyboard::Escape) {
-        pGrafico->fecharJanela();
-    }
-}
-
-void Fantasy::Gerenciador::GerenciadorEvento::verificaTeclaSolta(sf::Keyboard::Key tecla) {
-    if (tecla == sf::Keyboard::A || tecla == sf::Keyboard::D) {
-        pJogador->parar();
-    }
+void Fantasy::Gerenciador::GerenciadorEvento::removerObservador(int pos) {
+    listaObservador->removerObservador(pos);
 }
 
 void Fantasy::Gerenciador::GerenciadorEvento::executar() {
     sf::Event evento;
     while (pGrafico->getWindow()->pollEvent(evento)) {
         if (evento.type == sf::Event::KeyPressed) {
-            verificaTeclaPressionada(evento.key.code);
+            if (evento.key.code == sf::Keyboard::P) {
+                pGEstado->addEstado(IDs::IDs::jogar_florestaBranca);
+            }
+            else if (evento.key.code == sf::Keyboard::Escape) {
+                pGEstado->removerEstado();
+            }
+            else {
+                listaObservador->notificarTeclaPressionada(evento.key.code);
+            }
         }
         else if (evento.type == sf::Event::KeyReleased) {
-            verificaTeclaSolta(evento.key.code);
+            listaObservador->notificarTeclaSolta(evento.key.code);
         }
         else if (evento.type == sf::Event::Closed) {
             pGrafico->fecharJanela();

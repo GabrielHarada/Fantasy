@@ -2,15 +2,19 @@
 
 #include "..\Gerenciador\GerenciadorGrafico.h"
 #include "..\Entidade\Personagem\Jogador\Jogador.h"
+#include "..\Lista\ListaObservador.h"
 
 namespace Fantasy {
 
     namespace Gerenciador {
 
+        class GerenciadorEstado;
+
         class GerenciadorEvento {
         private:
-            GerenciadorGrafico* pGrafico;
-            Entidade::Personagem::Jogador::Jogador* pJogador;
+            static GerenciadorGrafico* pGrafico;
+            static GerenciadorEstado* pGEstado;
+            static Lista::ListaObservador* listaObservador;
 
             //padrão de projeto singleton
             static GerenciadorEvento* pEvento;
@@ -18,10 +22,9 @@ namespace Fantasy {
         public:
             ~GerenciadorEvento();
             static GerenciadorEvento* getGerenciadorEvento();
-            void setJogador(Entidade::Personagem::Jogador::Jogador* pJogador);
-            Entidade::Personagem::Jogador::Jogador* getJogador();
-            void verificaTeclaPressionada(sf::Keyboard::Key tecla);
-            void verificaTeclaSolta(sf::Keyboard::Key tecla);
+            void addObservador(Observador::Observador* observador);
+            void removerObservador(Observador::Observador* observador);
+            void removerObservador(int pos);
             void executar();
         };
 

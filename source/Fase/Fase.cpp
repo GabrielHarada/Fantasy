@@ -3,7 +3,7 @@
 Fantasy::Fase::Fase::Fase(const IDs::IDs ID_Fase, const IDs::IDs ID_Fundo) :
     Ente(ID_Fase), fundo(ID_Fundo), listaPersonagens(), listaObstaculos(),
     pColisao(new Gerenciador::GerenciadorColisao(&listaPersonagens, &listaObstaculos)),
-    construtor() {
+    construtorEntidade() {
     if (pColisao == nullptr) {
         std::cout << "Fantasy::Fase::nao foi possivel criar um Gerenciador de Colisao" << std::endl;
         exit(1);
@@ -25,30 +25,30 @@ void Fantasy::Fase::Fase::criarEntidade(char letra, const sf::Vector2i pos) {
     {
         case ('e'):
         {
-            listaPersonagens.addEntidade(construtor.criarEsqueleto(posAux));
+            listaPersonagens.addEntidade(construtorEntidade.criarEsqueleto(posAux));
         }
         break;
         case('b'):
         {
-            listaObstaculos.addEntidade(construtor.criarCaixa(posAux));
+            listaObstaculos.addEntidade(construtorEntidade.criarCaixa(posAux));
         }
         break;
         case('#'):
         {
-            listaObstaculos.addEntidade(construtor.criarPlataforma(posAux));
+            listaObstaculos.addEntidade(construtorEntidade.criarPlataforma(posAux));
         }
         break;
         case('j'): {
-            listaPersonagens.addEntidade(construtor.criarJogador(posAux));
+            listaPersonagens.addEntidade(construtorEntidade.criarJogador(posAux));
         }
         break;
         case ('c'):
         {
-            listaPersonagens.addEntidade(construtor.criarCiclope(posAux));
+            listaPersonagens.addEntidade(construtorEntidade.criarCiclope(posAux));
         }
         break;
         case('m'): {
-            listaPersonagens.addEntidade(construtor.criarMinotauro(posAux));
+            listaPersonagens.addEntidade(construtorEntidade.criarMinotauro(posAux));
         }
         break;
     }
@@ -63,4 +63,14 @@ void Fantasy::Fase::Fase::executar() {
     fundo.executar();
     desenhar();
     pColisao->executar();
+}
+
+Fantasy::Entidade::Personagem::Jogador::Jogador* Fantasy::Fase::Fase::getJogador() {
+    for (int i = 0; i < listaPersonagens.getTam(); i++) {
+        Entidade::Entidade* ent = listaPersonagens.operator[](i);
+        if (ent->getID() == IDs::IDs::jogador) {
+            return static_cast<Entidade::Personagem::Jogador::Jogador*>(ent);
+        }
+    }
+    return nullptr;
 }

@@ -156,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="source\Animador\Animacao.cpp" />
     <ClCompile Include="source\Animador\Imagem.cpp" />
+    <ClCompile Include="source\Construtor\ConstrutorEntidade.cpp" />
     <ClCompile Include="source\Construtor\ConstrutorEstado.cpp" />
     <ClCompile Include="source\Construtor\ConstrutorFase.cpp" />
     <ClCompile Include="source\Ente.cpp" />
@@ -172,6 +173,7 @@
     <ClCompile Include="source\Entidade\Personagem\Personagem.cpp" />
     <ClCompile Include="source\Estado\Estado.cpp" />
     <ClCompile Include="source\Estado\EstadoJogar.cpp" />
+    <ClCompile Include="source\Estado\EstadoMenuPrincipal.cpp" />
     <ClCompile Include="source\Fase\Fase.cpp" />
     <ClCompile Include="source\Fase\FlorestaBranca.cpp" />
     <ClCompile Include="source\Fase\FlorestaVermelha.cpp" />
@@ -180,7 +182,16 @@
     <ClCompile Include="source\Gerenciador\GerenciadorEvento.cpp" />
     <ClCompile Include="source\Gerenciador\GerenciadorGrafico.cpp" />
     <ClCompile Include="source\Lista\ListaEntidade.cpp" />
+    <ClCompile Include="source\Lista\ListaObservador.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Menu\Botao\Botao.cpp" />
+    <ClCompile Include="source\Menu\Botao\Texto.cpp" />
+    <ClCompile Include="source\Menu\Botao\TextoAnimado.cpp" />
+    <ClCompile Include="source\Menu\Menu.cpp" />
+    <ClCompile Include="source\Menu\MenuPrincipal.cpp" />
+    <ClCompile Include="source\Observador\Observador.cpp" />
+    <ClCompile Include="source\Observador\ObservadorJogador.cpp" />
+    <ClCompile Include="source\Observador\ObservadorMenuPrincipal.cpp" />
     <ClCompile Include="source\Parallax\Camada.cpp" />
     <ClCompile Include="source\Parallax\Fundo.cpp" />
     <ClCompile Include="source\Principal.cpp" />
@@ -188,6 +199,7 @@
   <ItemGroup>
     <ClInclude Include="header\Animador\Animacao.h" />
     <ClInclude Include="header\Animador\Imagem.h" />
+    <ClInclude Include="header\Construtor\ConstrutorEntidade.h" />
     <ClInclude Include="header\Construtor\ConstrutorEstado.h" />
     <ClInclude Include="header\Construtor\ConstrutorFase.h" />
     <ClInclude Include="header\Ente.h" />
@@ -204,6 +216,7 @@
     <ClInclude Include="header\Entidade\Personagem\Personagem.h" />
     <ClInclude Include="header\Estado\Estado.h" />
     <ClInclude Include="header\Estado\EstadoJogar.h" />
+    <ClInclude Include="header\Estado\EstadoMenuPrincipal.h" />
     <ClInclude Include="header\Fase\Fase.h" />
     <ClInclude Include="header\Fase\FlorestaBranca.h" />
     <ClInclude Include="header\Fase\FlorestaVermelha.h" />
@@ -215,6 +228,15 @@
     <ClInclude Include="header\Lista\Elemento.h" />
     <ClInclude Include="header\Lista\Lista.h" />
     <ClInclude Include="header\Lista\ListaEntidade.h" />
+    <ClInclude Include="header\Lista\ListaObservador.h" />
+    <ClInclude Include="header\Menu\Botao\Botao.h" />
+    <ClInclude Include="header\Menu\Botao\Texto.h" />
+    <ClInclude Include="header\Menu\Botao\TextoAnimado.h" />
+    <ClInclude Include="header\Menu\Menu.h" />
+    <ClInclude Include="header\Menu\MenuPrincipal.h" />
+    <ClInclude Include="header\Observador\Observador.h" />
+    <ClInclude Include="header\Observador\ObservadorJogador.h" />
+    <ClInclude Include="header\Observador\ObservadorMenuPrincipal.h" />
     <ClInclude Include="header\Parallax\Camada.h" />
     <ClInclude Include="header\Parallax\Fundo.h" />
     <ClInclude Include="header\Principal.h" />

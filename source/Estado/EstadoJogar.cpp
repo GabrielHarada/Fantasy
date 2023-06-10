@@ -1,23 +1,22 @@
 #include "..\..\header\Estado\EstadoJogar.h"
 
-namespace Fantasy {
+Fantasy::Estado::EstadoJogar::EstadoJogar(const IDs::IDs ID, Fase::Fase* fase) :
+    Estado(ID), fase(fase)
+{
 
-    namespace Estado {
+}
 
-        EstadoJogar::EstadoJogar(Fase::Fase* fase) :
-            Estado(fase->getID()), fase(fase)
-        {
+Fantasy::Estado::EstadoJogar::~EstadoJogar() {
+    /*if (fase) {
+        delete(fase);
+        fase = nullptr;
+    }*/
+}
 
-        }
+Fantasy::Entidade::Personagem::Jogador::Jogador* Fantasy::Estado::EstadoJogar::EstadoJogar::getJogador() {
+    return fase->getJogador();
+}
 
-        EstadoJogar::~EstadoJogar() {
-
-        }
-
-        void EstadoJogar::executar() {
-            fase->executar();
-        }
-
-    }
-
+void Fantasy::Estado::EstadoJogar::executar() {
+    fase->executar();
 }

@@ -7,12 +7,12 @@ Fantasy::Gerenciador::GerenciadorColisao::GerenciadorColisao(Lista::ListaEntidad
 }
 
 Fantasy::Gerenciador::GerenciadorColisao::~GerenciadorColisao() {
-    /*if (listaPersonagem) {
+    if (listaPersonagem) {
         delete(listaPersonagem);
     }
     if (listaObstaculo) {
         delete(listaObstaculo);
-    }*/
+    }
 }
 
 const sf::Vector2f Fantasy::Gerenciador::GerenciadorColisao::calculaColisao(Entidade::Entidade* ent1, Entidade::Entidade* ent2) {

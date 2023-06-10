@@ -46,12 +46,24 @@ sf::Texture Fantasy::Gerenciador::GerenciadorGrafico::carregarTextura(const char
     return textura;
 }
 
+sf::Font Fantasy::Gerenciador::GerenciadorGrafico::carregarFonte(const char* caminhoFonte) {
+    sf::Font fonte;
+    if (!fonte.loadFromFile(caminhoFonte)) {
+        throw("ERROR::Fantasy::Gerenciador::GerenciadorGrafico::nao foi possivel encontrar o caminho da fonte");
+    }
+    return fonte;
+}
+
 void Fantasy::Gerenciador::GerenciadorGrafico::limpaJanela(){
     window->clear();
 }
 
 void Fantasy::Gerenciador::GerenciadorGrafico::desenhaElemento(sf::RectangleShape corpo){
     window->draw(corpo);
+}
+
+void Fantasy::Gerenciador::GerenciadorGrafico::desenhaElemento(sf::Text texto) {
+    window->draw(texto);
 }
 
 void Fantasy::Gerenciador::GerenciadorGrafico::mostraElementos(){
@@ -66,11 +78,20 @@ const bool Fantasy::Gerenciador::GerenciadorGrafico::verificaJanelaAberta(){
     return window->isOpen();
 }
 
-void Fantasy::Gerenciador::GerenciadorGrafico::atualizarCamera(const sf::Vector2f posJogador) {
-    camera.setCenter(posJogador.x, 300.0f);
+void Fantasy::Gerenciador::GerenciadorGrafico::atualizarCamera(const sf::Vector2f pos) {
+    camera.setCenter(pos);
     window->setView(camera);
 }
 
 const sf::View Fantasy::Gerenciador::GerenciadorGrafico::getCamera() {
     return camera;
+}
+
+void Fantasy::Gerenciador::GerenciadorGrafico::resetarJanela() {
+    camera.setCenter(TELA_X / 2.0f, TELA_Y / 2.0f);
+    window->setView(camera);
+}
+
+const sf::Vector2f Fantasy::Gerenciador::GerenciadorGrafico::getTamJanela() const {
+    return (sf::Vector2f)window->getSize();
 }

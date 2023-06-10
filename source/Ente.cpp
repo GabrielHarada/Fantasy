@@ -1,7 +1,9 @@
 #include "..\header\Ente.h"
 
+Fantasy::Gerenciador::GerenciadorGrafico* Fantasy::Ente::pGrafico = Gerenciador::GerenciadorGrafico::getGerenciadorGrafico();
+
 Fantasy::Ente::Ente(const IDs::IDs ID) :
-    ID(ID), pGrafico(pGrafico->getGerenciadorGrafico())
+    ID(ID)
 {
 
 }

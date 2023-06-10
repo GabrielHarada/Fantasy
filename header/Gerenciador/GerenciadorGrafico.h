@@ -23,13 +23,17 @@ namespace Fantasy {
             static GerenciadorGrafico* getGerenciadorGrafico();
             sf::RenderWindow* getWindow();
             sf::Texture carregarTextura(const char* caminhoTextura);
+            sf::Font carregarFonte(const char* caminhoFonte);
             void limpaJanela();
             void desenhaElemento(sf::RectangleShape corpo);
+            void desenhaElemento(sf::Text texto);
             void mostraElementos();
             void fecharJanela();
             const bool verificaJanelaAberta();
-            void atualizarCamera(const sf::Vector2f posJogador);
+            void atualizarCamera(const sf::Vector2f pos);
             const sf::View getCamera();
+            void resetarJanela();
+            const sf::Vector2f getTamJanela() const;
         };
 
     }

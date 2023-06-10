@@ -1,31 +1,23 @@
 #include "..\..\header\Estado\Estado.h"
 
-namespace Fantasy {
+Fantasy::Estado::Estado::Estado(const IDs::IDs ID) :
+    Ente(ID), remover(false)
+{
 
-    namespace Estado {
+}
 
-        Estado::Estado(const IDs::IDs ID) :
-            Ente(ID), remover(false)
-        {
+Fantasy::Estado::Estado::~Estado() {
 
-        }
+}
 
-        Estado::~Estado() {
+void Fantasy::Estado::Estado::desenhar() {
 
-        }
+}
 
-        void Estado::desenhar() {
+void Fantasy::Estado::Estado::setRemover(const bool remover) {
+    this->remover = remover;
+}
 
-        }
-
-        void Estado::setRemover(const bool remover) {
-            this->remover = remover;
-        }
-
-        const bool Estado::getRemover() const {
-            return remover;
-        }
-
-    }
-
+const bool Fantasy::Estado::Estado::getRemover() const {
+    return remover;
 }

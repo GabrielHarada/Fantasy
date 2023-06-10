@@ -5,12 +5,11 @@
 #include "..\Ente.h"
 #include "..\Parallax\Fundo.h"
 
-#include "..\Construtor\ConstrutorFase.h"
-
 #include "..\Gerenciador\GerenciadorColisao.h"
-#include "..\Gerenciador\GerenciadorEvento.h"
 
 #include "..\Lista\ListaEntidade.h"
+
+#include "..\Construtor\ConstrutorEntidade.h"
 
 namespace Fantasy {
 
@@ -20,9 +19,9 @@ namespace Fantasy {
         protected:
             Lista::ListaEntidade listaPersonagens;
             Lista::ListaEntidade listaObstaculos;
+            Construtor::ConstrutorEntidade construtorEntidade;
             Gerenciador::GerenciadorColisao* pColisao;
             Parallax::Fundo fundo;
-            Construtor::ConstrutorFase construtor;
         public:
             Fase(const IDs::IDs ID_Fase, const IDs::IDs ID_Fundo);
             ~Fase();
@@ -31,6 +30,7 @@ namespace Fantasy {
             void criarEntidade(char letra, const sf::Vector2i pos);
             void executar();
             void desenhar();
+            Entidade::Personagem::Jogador::Jogador* getJogador();
         };
 
     }

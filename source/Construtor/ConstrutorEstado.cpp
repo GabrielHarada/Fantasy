@@ -8,24 +8,28 @@ Fantasy::Construtor::ConstrutorEstado::~ConstrutorEstado() {
 
 }
 
-Fantasy::Estado::Estado* Fantasy::Construtor::ConstrutorEstado::addEstadoJogar(const IDs::IDs ID) {
+Fantasy::Estado::Estado* Fantasy::Construtor::ConstrutorEstado::criarEstadoJogar(const IDs::IDs ID) {
     Fase::Fase* fase = nullptr;
-    if (ID == IDs::IDs::jogar_florestaBranca) {
-        fase = static_cast<Fase::Fase*>(new Fase::FlorestaBranca());
-    }
-    else {
-        fase = static_cast<Fase::Fase*>(new Fase::FlorestaVermelha());
-    }
-    if (fase == nullptr) {
-        std::cout << "Fantasy::Estado::MaquinaEstado::nao foi possivel criar uma fase" << std::endl;
-        exit(1);
-    }
-    fase->criarFundo();
-    fase->criarMapa();
-    Estado::EstadoJogar* estadoJogar = new Estado::EstadoJogar(fase);
-    if (estadoJogar == nullptr) {
-        std::cout << "Fantasy::Estado::MaquinaEstado::nao foi possivel criar um Estado Jogar" << std::endl;
-        exit(1);
-    }
+    Construtor::ConstrutorFase construtorFase;
+
+
+    fase = construtorFase.criarFase(ID);
+
+    Estado::EstadoJogar* estadoJogar = new Estado::EstadoJogar(ID, fase);
     return static_cast<Estado::Estado*>(estadoJogar);
+}
+
+Fantasy::Estado::Estado* Fantasy::Construtor::ConstrutorEstado::criarMenuPrincipal(const IDs::IDs ID) {
+    Estado::Estado* estado = static_cast<Estado::Estado*>(new Estado::EstadoMenuPrincipal(ID));
+    return estado;
+}
+
+Fantasy::Estado::Estado* Fantasy::Construtor::ConstrutorEstado::criarEstado(const IDs::IDs ID) {
+    if (IDs::IDs::jogar_florestaBranca == ID || IDs::IDs::jogar_florestaVermelha == ID) {
+        return criarEstadoJogar(ID);
+    }
+    else if(ID == IDs::IDs::estado_menu_principal){
+                return criarMenuPrincipal(ID);
+    }
+    return nullptr;
 }

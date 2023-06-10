@@ -1,13 +1,27 @@
 #pragma once
-#include "..\..\header\Entidade\Personagem\Jogador\Jogador.h"
-#include "..\..\header\Entidade\Personagem\Personagem.h"
+
 #include <math.h>
 
+#include "..\..\header\Entidade\Personagem\Jogador\Jogador.h"
+#include "..\..\header\Entidade\Personagem\Personagem.h"
+#include "..\..\..\..\header\Observador\ObservadorJogador.h"
 
 Fantasy::Entidade::Personagem::Jogador::Jogador::Jogador(const sf::Vector2f pos):
-    Personagem(pos, sf::Vector2f(TAMANHO_JOGADOR_X, TAMANHO_JOGADOR_Y), VELOCIDADE_JOGADOR, IDs::IDs::jogador), noChao(false)
+    Personagem(pos, sf::Vector2f(TAMANHO_JOGADOR_X, TAMANHO_JOGADOR_Y), VELOCIDADE_JOGADOR, IDs::IDs::jogador),
+    noChao(false), observadorJogador(new Observador::ObservadorJogador(this)) 
 {
+    if (observadorJogador == nullptr) {
+        std::cout << "ERROR::Entidade::Personagem::Jogador::Jogador::nao foi possivel criar um observador para o jogador" << std::endl;
+        exit(1);
+    }
 	inicializa();
+}
+
+Fantasy::Entidade::Personagem::Jogador::Jogador::~Jogador() {
+    if (observadorJogador) {
+        delete(observadorJogador);
+        observadorJogador = nullptr;
+    }
 }
 
 void Fantasy::Entidade::Personagem::Jogador::Jogador::inicializa() {
@@ -21,13 +35,10 @@ void Fantasy::Entidade::Personagem::Jogador::Jogador::inicializa() {
     corpo.setOrigin(sf::Vector2f(tam.x / 2.5f, tam.y / 2.0f));
 }
 
-Fantasy::Entidade::Personagem::Jogador::Jogador::~Jogador() {
-}
-
 void Fantasy::Entidade::Personagem::Jogador::Jogador::atualizar() {
     atualizarPosicao();
     atualizarAnimacao();
-    pGrafico->atualizarCamera(pos);
+    pGrafico->atualizarCamera(sf::Vector2f(pos.x, 300.0f));
 }
 
 void Fantasy::Entidade::Personagem::Jogador::Jogador::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
@@ -71,4 +82,15 @@ void Fantasy::Entidade::Personagem::Jogador::Jogador::atualizarAnimacao() {
     else {
         animacao.atualizar(paraEsquerda, "Parado");
     }
+}
+
+void Fantasy::Entidade::Personagem::Jogador::Jogador::ativarObservador() {
+    observadorJogador->ativarObservador();
+}
+void Fantasy::Entidade::Personagem::Jogador::Jogador::desativarObservador() {
+    observadorJogador->desativarObservador();
+}
+
+const bool Fantasy::Entidade::Personagem::Jogador::Jogador::getAtivarObservador() const {
+    return observadorJogador->getAtivar();
 }

@@ -7,6 +7,10 @@
 #include "..\Fase\FlorestaBranca.h"
 #include "..\Fase\FlorestaVermelha.h"
 
+#include "..\Entidade\Personagem\Jogador\Jogador.h"
+
+#include "..\Construtor\ConstrutorEstado.h"
+
 namespace Fantasy {
 
     namespace Estado {
@@ -15,9 +19,10 @@ namespace Fantasy {
         private:
             Fase::Fase* fase;
         public:
-            EstadoJogar(Fase::Fase* fase);
+            EstadoJogar(const IDs::IDs ID, Fase::Fase* fase);
             ~EstadoJogar();
             void executar();
+            Entidade::Personagem::Jogador::Jogador* getJogador();
         };
 
     }
