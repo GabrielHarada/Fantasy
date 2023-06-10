@@ -1,16 +1,16 @@
 #include "..\..\..\header\Menu\Botao\Botao.h"
 
-Fantasy::Menu::Botao::Botao::Botao(const std::string texto, const sf::Vector2f tam, const sf::Vector2f pos, const IDs::IDs ID) :
-    Ente(ID), texto(pGrafico->carregarFonte(CAMINHO_FONTE), texto),
+Fantasy::Menu::Botao::Botao::Botao(const std::string info, const sf::Vector2f tam, const sf::Vector2f pos, const IDs::IDs ID, const sf::Color corSelecionado) :
+    Ente(ID), texto(pGrafico->carregarFonte(CAMINHO_FONTE), info),
     selecionado(false), pos(pos), tam(tam), relogio(),
-    tempoTrocaCor(TEMPO_TROCAR_COR), tempo(0.0f)
+    tempoTrocaCor(TEMPO_TROCAR_COR), tempo(0.0f), corSelecionado(corSelecionado)
 {
     caixaTexto.setPosition(pos);
     caixaTexto.setSize(tam);
     sf::Vector2f tamTexto = this->texto.getTam();
     sf::Vector2f posTexto = sf::Vector2f(
-        pos.x + tam.x / 2.0f - tamTexto.x / 2.0f,
-        pos.y + tam.y / 2.0f - tamTexto.y * 1.5f
+        pos.x + tam.x / 2.0f - tamTexto.x / 2.05f,
+        pos.y + tam.y / 2.0f - tamTexto.y * 1.2f
     );
     this->texto.setPos(posTexto);
     caixaTexto.setFillColor(sf::Color::Transparent);
@@ -22,13 +22,13 @@ Fantasy::Menu::Botao::Botao::~Botao() {
 
 void Fantasy::Menu::Botao::Botao::desenhar() {
     atualizarTexto();
-    pGrafico->desenhaElemento(caixaTexto);
+    //pGrafico->desenhaElemento(caixaTexto);
     pGrafico->desenhaElemento(texto.getTexto());
 }
 
 void Fantasy::Menu::Botao::Botao::setSelecionado(const bool selecionado) {
     if (selecionado) {
-        texto.setCorTexto(sf::Color{ 0, 200, 0 });
+        texto.setCorTexto(corSelecionado);
     }
     else {
         texto.setCorTexto(sf::Color::White);
@@ -71,4 +71,24 @@ void Fantasy::Menu::Botao::Botao::atualizarTexto() {
 
 const bool Fantasy::Menu::Botao::Botao::getSelecionado() const {
     return selecionado;
+}
+
+void Fantasy::Menu::Botao::Botao::atualizarPosicao(const sf::Vector2f pos) {
+    this->pos = pos;
+    caixaTexto.setPosition(pos);
+    sf::Vector2f tamTexto = this->texto.getTam();
+    sf::Vector2f posTexto = sf::Vector2f(
+        pos.x + tam.x / 2.0f - tamTexto.x / 2.05f,
+        pos.y + tam.y / 2.0f - tamTexto.y * 1.2f
+    );
+    this->texto.setPos(posTexto);
+}
+
+
+const sf::Vector2f Fantasy::Menu::Botao::Botao::getPos() const {
+    return caixaTexto.getPosition();
+}
+
+const sf::Vector2f Fantasy::Menu::Botao::Botao::getTamTexto() const {
+    return sf::Vector2f(texto.getTexto().getGlobalBounds().width, texto.getTexto().getGlobalBounds().height);
 }

@@ -6,6 +6,7 @@ namespace Fantasy {
 
     namespace Gerenciador {
         class GerenciadorEvento;
+        class GerenciadorEstado;
     }
 
     namespace Observador {
@@ -13,13 +14,13 @@ namespace Fantasy {
         class Observador {
         protected:
             static Gerenciador::GerenciadorEvento* pEvento;
+            static Gerenciador::GerenciadorEstado* pGEstado;
         private:
             bool ativar;
         public:
             Observador();
-            ~Observador();
-            void ativarObservador();
-            void desativarObservador();
+            virtual ~Observador();
+            void mudarEstadoAtivar();
             const bool getAtivar() const;
             void removerObservador();
             virtual void teclaPressionada(const sf::Keyboard::Key tecla) = 0;

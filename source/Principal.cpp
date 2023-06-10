@@ -28,6 +28,7 @@ Fantasy::Principal::~Principal() {
 
 void Fantasy::Principal::inicializa() {
 	pGerenciadorEstado->addEstado(IDs::IDs::estado_menu_principal);
+	executar();
 }
 
 void Fantasy::Principal::executar() {

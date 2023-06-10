@@ -20,6 +20,7 @@ namespace Fantasy {
             Entidade::Entidade* operator[](int pos);
             void executar();
             void limparLista();
+            void desenharEntidades();
         };
 
     }

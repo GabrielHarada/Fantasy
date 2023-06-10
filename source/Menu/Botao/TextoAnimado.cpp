@@ -1,7 +1,7 @@
 #include "..\..\..\header\Menu\Botao\TextoAnimado.h"
 
-Fantasy::Menu::Botao::TextoAnimado::TextoAnimado(sf::Font fonte, const std::string texto) :
-    Texto(fonte, texto), clareando(true), transparente(255)
+Fantasy::Menu::Botao::TextoAnimado::TextoAnimado(const sf::Font fonte, const std::string info) :
+    Texto(fonte, info), clareando(true), transparente(255)
 {
 
 }

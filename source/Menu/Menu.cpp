@@ -1,16 +1,10 @@
 #include "..\..\header\Menu\Menu.h"
 
-Fantasy::Menu::Menu::Menu(const IDs::IDs ID, const sf::Vector2f tamBotao, const IDs::IDs ID_Fundo) :
-    Ente(ID), listaBotao(), it(), tamBotao(tamBotao), tamJanela(pGrafico->getTamJanela()),//, textura()
-    posFundo(0.0f, 0.0f), fundo(ID_Fundo)
+Fantasy::Menu::Menu::Menu(const IDs::IDs ID, const sf::Vector2f tamBotao, const std::string nome, const unsigned int tamFonte) :
+    Ente(ID), listaBotao(), it(), tamBotao(tamBotao), tamJanela(pGrafico->getTamJanela()), posFundo(sf::Vector2f(0.0f, 0.0f)),
+    nomeMenu(pGrafico->carregarFonte("image/fonte/menu.ttf"), nome, tamFonte) 
 {
-    fundo.addCamada("image/Fase/FlorestaNegra/camada1.png", 0.0f);
-    fundo.addCamada("image/Fase/FlorestaNegra/camada2.png", 0.05f);
-    fundo.addCamada("image/Fase/FlorestaNegra/camada3.png", 0.1f);
-    fundo.addCamada("image/Fase/FlorestaNegra/camada4.png", 0.15f);
-    fundo.addCamada("image/Fase/FlorestaNegra/camada5.png", 0.2f);
-    fundo.addCamada("image/Fase/FlorestaNegra/camada6.png", 0.4f);
-    fundo.addCamada("image/Fase/FlorestaNegra/camada7.png", 0.6f);
+
 }
 
 Fantasy::Menu::Menu::~Menu() {
@@ -23,19 +17,45 @@ Fantasy::Menu::Menu::~Menu() {
     }
 }
 
-void Fantasy::Menu::Menu::addBotao(const std::string texto, const sf::Vector2f pos, const IDs::IDs ID){
-Botao::Botao* botao = new Botao::Botao(texto, tamBotao, pos, ID);
+void Fantasy::Menu::Menu::addBotao(const std::string info, const sf::Vector2f pos, const IDs::IDs ID, const sf::Color corSelecionado) {
+    Botao::Botao* botao = new Botao::Botao(info, tamBotao, pos, ID, corSelecionado);
     if (botao == nullptr) {
         throw("ERROR::Fantasy::Menu::nao foi possivel criar um botao");
     }
     listaBotao.push_back(botao);
 }
 
+void Fantasy::Menu::Menu::atualizarPosicaoFundo() {
+    posFundo = pGrafico->getCamera().getCenter();
+}
+
+void Fantasy::Menu::Menu::selecionaCima() {
+    Botao::Botao* botao = *it;
+    botao->setSelecionado(false);
+    if (it == listaBotao.begin()) {
+        it = listaBotao.end();
+    }
+    it--;
+    botao = *it;
+    botao->setSelecionado(true);
+}
+
+void Fantasy::Menu::Menu::selecionaBaixo() {
+    Botao::Botao* botao = *it;
+    botao->setSelecionado(false);
+    it++;
+    if (it == listaBotao.end()) {
+        it = listaBotao.begin();
+    }
+    botao = *it;
+    botao->setSelecionado(true);
+}
+
+const IDs::IDs Fantasy::Menu::Menu::getIDBotaoSelecionado() {
+    return (*it)->getID();
+}
+
 void Fantasy::Menu::Menu::desenhar() {
-    posFundo = sf::Vector2f(posFundo.x + 0.05f, posFundo.y);
-    pGrafico->atualizarCamera(sf::Vector2f(posFundo.x + tamJanela.x / 2.0f, posFundo.y + tamJanela.y / 2.0f));
-    fundo.executar();
-    pGrafico->resetarJanela();
     std::list<Botao::Botao*>::iterator aux;
     for (aux = listaBotao.begin(); aux != listaBotao.end(); aux++) {
         Botao::Botao* botao = *aux;

@@ -38,6 +38,7 @@ void Fantasy::Lista::ListaObservador::notificarTeclaPressionada(const sf::Keyboa
         }        
         observador = nullptr;
     }
+    std::cout << objListaObservador.getTam() << std::endl;
 }
 
 void Fantasy::Lista::ListaObservador::notificarTeclaSolta(const sf::Keyboard::Key tecla) {

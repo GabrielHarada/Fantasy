@@ -42,3 +42,13 @@ void Fantasy::Lista::ListaEntidade::executar() {
 void Fantasy::Lista::ListaEntidade::limparLista() {
     objListaEntidade.limparLista();
 }
+
+void Fantasy::Lista::ListaEntidade::desenharEntidades() {
+    //apenas desenha as Entidades
+    int tam = objListaEntidade.getTam();
+    Entidade::Entidade* aux = nullptr;
+    for (int i = 0; i < tam; i++) {
+        aux = objListaEntidade.operator[](i);
+        aux->desenhar();
+    }
+}

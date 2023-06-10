@@ -19,11 +19,17 @@ namespace IDs {
         jogar_florestaVermelha,
         botao_novoJogo,
         botao_carregarJogo,
+        botao_salvarJogada,
         botao_colocacao,
         botao_opcao,
         botao_sair,
+        botao_voltar,
         menu_principal,
-        estado_menu_principal
+        menu_pausa,
+        menu_opcao,
+        estado_menu_principal,
+        estado_menu_pausa,
+        estado_menu_opcaoPrincipal
     };
 
 }

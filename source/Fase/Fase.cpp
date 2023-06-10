@@ -1,9 +1,11 @@
 #include "..\..\header\Fase\Fase.h"
+#include "..\..\header\Observador\ObservadorFase.h"
 
 Fantasy::Fase::Fase::Fase(const IDs::IDs ID_Fase, const IDs::IDs ID_Fundo) :
     Ente(ID_Fase), fundo(ID_Fundo), listaPersonagens(), listaObstaculos(),
     pColisao(new Gerenciador::GerenciadorColisao(&listaPersonagens, &listaObstaculos)),
-    construtorEntidade() {
+    construtorEntidade(), observadorFase(new Observador::ObservadorFase(this)) 
+{
     if (pColisao == nullptr) {
         std::cout << "Fantasy::Fase::nao foi possivel criar um Gerenciador de Colisao" << std::endl;
         exit(1);
@@ -17,6 +19,10 @@ Fantasy::Fase::Fase::~Fase() {
     }
     listaObstaculos.limparLista();
     listaPersonagens.limparLista();
+    if (observadorFase) {
+        delete(observadorFase);
+        observadorFase = nullptr;
+    }
 }
 
 void Fantasy::Fase::Fase::criarEntidade(char letra, const sf::Vector2i pos) {
@@ -55,13 +61,19 @@ void Fantasy::Fase::Fase::criarEntidade(char letra, const sf::Vector2i pos) {
 }
 
 void Fantasy::Fase::Fase::desenhar() {
-    listaPersonagens.executar();
-    listaObstaculos.executar();
+    fundo.executar();
+
+    listaPersonagens.desenharEntidades();
+    listaObstaculos.desenharEntidades();
 }
 
 void Fantasy::Fase::Fase::executar() {
     fundo.executar();
-    desenhar();
+
+    //atualiza e desenha entidades
+    listaPersonagens.executar();
+    listaObstaculos.executar();  
+
     pColisao->executar();
 }
 

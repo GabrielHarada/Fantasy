@@ -10,7 +10,7 @@ namespace Fantasy {
 
             class Texto {
             private:
-                sf::Font fonte;
+                const sf::Font fonte;
                 std::string info;
 
             protected:
@@ -22,7 +22,7 @@ namespace Fantasy {
 
                 void inicializa();
             public:
-                Texto(sf::Font fonte, const std::string texto, const unsigned int tamFonte = 50);
+                Texto(const sf::Font fonte, const std::string info, const unsigned int tamFonte = 50);
                 ~Texto();
                 const sf::Text getTexto() const;
                 void setPos(const sf::Vector2f pos);

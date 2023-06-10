@@ -13,8 +13,12 @@ Fantasy::Estado::EstadoJogar::~EstadoJogar() {
     }*/
 }
 
-Fantasy::Entidade::Personagem::Jogador::Jogador* Fantasy::Estado::EstadoJogar::EstadoJogar::getJogador() {
-    return fase->getJogador();
+Fantasy::Fase::Fase* Fantasy::Estado::EstadoJogar::getFase() {
+    return fase;
+}
+
+void Fantasy::Estado::EstadoJogar::EstadoJogar::mudarEstadoObservador() {
+    fase->getJogador()->mudarEstadoObservador();
 }
 
 void Fantasy::Estado::EstadoJogar::executar() {

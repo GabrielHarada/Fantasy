@@ -7,7 +7,7 @@ Fantasy::Observador::ObservadorJogador::ObservadorJogador(Entidade::Personagem::
 }
 
 Fantasy::Observador::ObservadorJogador::~ObservadorJogador() {
-    removerObservador();
+
 }
 
 void Fantasy::Observador::ObservadorJogador::teclaPressionada(const sf::Keyboard::Key tecla) {

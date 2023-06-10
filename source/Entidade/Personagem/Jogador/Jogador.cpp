@@ -84,13 +84,6 @@ void Fantasy::Entidade::Personagem::Jogador::Jogador::atualizarAnimacao() {
     }
 }
 
-void Fantasy::Entidade::Personagem::Jogador::Jogador::ativarObservador() {
-    observadorJogador->ativarObservador();
-}
-void Fantasy::Entidade::Personagem::Jogador::Jogador::desativarObservador() {
-    observadorJogador->desativarObservador();
-}
-
-const bool Fantasy::Entidade::Personagem::Jogador::Jogador::getAtivarObservador() const {
-    return observadorJogador->getAtivar();
+void Fantasy::Entidade::Personagem::Jogador::Jogador::mudarEstadoObservador() {
+    observadorJogador->mudarEstadoAtivar();
 }

@@ -2,7 +2,9 @@
 
 #include "..\Estado\EstadoJogar.h"
 #include "..\Construtor\ConstrutorFase.h"
+#include "..\Estado\EstadoMenuPausa.h"
 #include "..\Estado\EstadoMenuPrincipal.h"
+#include "..\Estado\EstadoMenuOpcaoPrincipal.h"
 
 namespace Fantasy {
 
@@ -11,8 +13,9 @@ namespace Fantasy {
         class ConstrutorEstado {
         private:
             Estado::Estado* criarEstadoJogar(const IDs::IDs ID);
-            Estado::Estado* criarMenuPrincipal(const IDs::IDs ID = IDs::IDs::estado_menu_principal);
-            //Estado::Estado* criarMenuPausar();
+            Estado::Estado* criarMenuPrincipal();
+            Estado::Estado* criarMenuPausar();
+            Estado::Estado* criarMenuOpcaoPrincipal();
             //Estado::Estado* criarMenuSalvar();
             //Estado::Estado* criarMenuOpcao();
             //Estado::Estado* criarColocao();

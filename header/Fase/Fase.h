@@ -13,15 +13,23 @@
 
 namespace Fantasy {
 
+    namespace Observador {
+        class ObservadorFase;
+    }
+
     namespace Fase {
 
         class Fase : public Ente {
+        private:
+            Observador::ObservadorFase* observadorFase;
         protected:
             Lista::ListaEntidade listaPersonagens;
             Lista::ListaEntidade listaObstaculos;
             Construtor::ConstrutorEntidade construtorEntidade;
             Gerenciador::GerenciadorColisao* pColisao;
             Parallax::Fundo fundo;
+
+            void atualizarEntidades();
         public:
             Fase(const IDs::IDs ID_Fase, const IDs::IDs ID_Fundo);
             ~Fase();

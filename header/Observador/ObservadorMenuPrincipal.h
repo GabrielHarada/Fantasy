@@ -9,16 +9,11 @@ namespace Fantasy {
         class MenuPrincipal;
     }
 
-    namespace Gerenciador {
-        class GerenciadorEstado;
-    }
-
     namespace Observador {
 
         class ObservadorMenuPrincipal : public Observador {
         private:
             Menu::MenuPrincipal* menuPrincipal;
-            static Gerenciador::GerenciadorEstado* pGEstado;
         public:
             ObservadorMenuPrincipal(Menu::MenuPrincipal* menuPrincipal);
             ~ObservadorMenuPrincipal();

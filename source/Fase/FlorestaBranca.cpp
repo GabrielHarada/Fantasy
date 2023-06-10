@@ -20,7 +20,7 @@ void Fantasy::Fase::FlorestaBranca::criarFundo() {
 void Fantasy::Fase::FlorestaBranca::criarMapa() {
     listaPersonagens.addEntidade(construtorEntidade.criarJogador(sf::Vector2f(100.0f, 400.0f)));
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = -2; i < 8; i++) {
         listaObstaculos.addEntidade(construtorEntidade.criarPlataforma(sf::Vector2f(i * 300.0f, 550.0f)));
     }
 
@@ -29,6 +29,7 @@ void Fantasy::Fase::FlorestaBranca::criarMapa() {
     }
 
     listaPersonagens.addEntidade(construtorEntidade.criarCiclope(sf::Vector2f(300.0f * (1), 0.0f)));
+    listaPersonagens.addEntidade(construtorEntidade.criarMinotauro(sf::Vector2f(250.0f * (1), 0.0f)));
 
     listaObstaculos.addEntidade(construtorEntidade.criarPlataforma(sf::Vector2f(500.0f, 400.0f)));
     listaObstaculos.addEntidade(construtorEntidade.criarPlataforma(sf::Vector2f(900.0f, 400.0f)));

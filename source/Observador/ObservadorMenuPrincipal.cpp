@@ -2,8 +2,6 @@
 #include "..\..\header\Menu\MenuPrincipal.h"
 #include "..\..\header\Gerenciador\GerenciadorEstado.h"
 
-Fantasy::Gerenciador::GerenciadorEstado* Fantasy::Observador::ObservadorMenuPrincipal::pGEstado = Gerenciador::GerenciadorEstado::getGerenciadorEstado();
-
 Fantasy::Observador::ObservadorMenuPrincipal::ObservadorMenuPrincipal(Menu::MenuPrincipal* menuPrincipal) :
     Observador(), menuPrincipal(menuPrincipal)
 {
@@ -11,7 +9,7 @@ Fantasy::Observador::ObservadorMenuPrincipal::ObservadorMenuPrincipal(Menu::Menu
 }
 
 Fantasy::Observador::ObservadorMenuPrincipal::~ObservadorMenuPrincipal() {
-    removerObservador();
+
 }
 
 void Fantasy::Observador::ObservadorMenuPrincipal::teclaPressionada(const sf::Keyboard::Key tecla) {
@@ -29,6 +27,11 @@ void Fantasy::Observador::ObservadorMenuPrincipal::teclaPressionada(const sf::Ke
         case (IDs::IDs::botao_sair):
         {
             pGEstado->removerEstado();
+        }
+        break;
+        case (IDs::IDs::botao_opcao):
+        {
+            pGEstado->addEstado(IDs::IDs::estado_menu_opcaoPrincipal);
         }
         break;
         }
